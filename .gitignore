@@ -1,0 +1,6 @@
+data/
+results_smoke/
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
