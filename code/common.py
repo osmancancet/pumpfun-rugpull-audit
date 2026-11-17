@@ -70,7 +70,8 @@ def precision_at_budget(y, s, budget):
     return float((y[above].sum() + take * y[tie].mean()) / k)
 
 def threshold_for_rate(s_val, rate):
-    """Score threshold that flags `rate` of the validation launches (fixed before testing)."""
+    """Score threshold that flags `rate` of the launches whose scores are passed in. The main runs pass
+    the test scores themselves (a transductive operating point for MCC only); s06 passes validation scores."""
     return float(np.quantile(np.asarray(s_val, float), 1 - rate))
 
 def all_metrics(y, s, thr=None):

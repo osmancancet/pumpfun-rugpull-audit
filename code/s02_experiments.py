@@ -39,7 +39,8 @@ def cap(idx, seed):
     return idx
 
 def evaluate(tag, tr, te, feats, target=C.PRIMARY_TARGET, models=None, val=None, store=None, data=None):
-    """Fit every model on tr, score te; threshold fixed on val (or on tr) at the test prevalence of tr."""
+    """Fit every model on tr, score te. MCC uses a threshold that flags the training prevalence share of the
+    test launches (set from the test scores, so it is transductive); ranking metrics need no threshold."""
     data = D if data is None else data
     tr = cap(tr, SEED)
     Xtr, ytr = data.loc[tr, feats + _rule_cols(feats)], data.loc[tr, target].to_numpy()
