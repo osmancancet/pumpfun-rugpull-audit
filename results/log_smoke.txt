@@ -6,33 +6,13 @@ PASS delong: identical scores give zero difference
 PASS delong SE ~ bootstrap SE (0.0191 vs 0.0196)
 PASS BH q-values [0.02 0.04 0.04 0.02]
 PASS mcnemar exact p=0.0020
-PASS causal_reputation == brute force on 600 launches (mismatches=0)
+PASS causal_reputation (strict) == brute force on 600 launches (mismatches=0)
+PASS causal_reputation (strict=False, first run) == brute force (mismatches=0)
 PASS oracle reputation == brute force (mismatches=0)
+PASS precision_at_budget is tie-aware (constant score -> prevalence)
 PASS resolved history never exceeds launch history
 PASS creator-grouped split is creator-disjoint
 PASS forward folds strictly ordered with 1-day purge (5 folds)
-                                   0      1
-0                    launches subset  26484
-1                 SOL-quoted (KI-03)  25686
-2           decoder complete (KI-02)  25686
-3           outcome resolved (KI-08)  24423
-4           has f10 snapshot (KI-01)  24423
-5                  create lag <= 1 s  23599
-6  non-negative snapshot age (KI-11)  23599
-7     not rugged before the snapshot  23343
-8   not migrated before the snapshot  23343
-            n  creators    rug300   rug_any      grad  first_time
-mayhem                                                           
-0       16476       606  0.364834  0.472991  0.029012    0.024581
-1        6867       351  0.545362  0.707733  0.028105    0.024465
-ep n_tr=4044 n_te=44 ap=0.4318 0.0s
-02:01:53 E5|subgroup=first_time_creators lgbm n_tr=4044 n_te=44 ap=0.6658 0.2s
-02:01:53 E5|subgroup=repeat_creators prior n_tr=4044 n_te=1976 ap=0.4180 0.0s
-02:01:53 E5|subgroup=repeat_creators rule_rep n_tr=4044 n_te=1976 ap=0.5143 0.0s
-02:01:53 E5|subgroup=repeat_creators lgbm n_tr=4044 n_te=1976 ap=0.5298 0.2s
-done; results in /workspace/makale/results_smoke
- 
 PASS s02_experiments.py --smoke runs end-to-end
 PASS audit flags a look-ahead reputation field (synthetic oracle) as closer to oracle than to causal
-
-15/15 checks passed (synthetic data; not research results)
+17/17 checks passed (synthetic data; not research results)
