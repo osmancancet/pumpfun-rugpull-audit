@@ -1,6 +1,6 @@
 ## Highlights
-- Random-mint splits overstate pump.fun rug-pull PR-AUC modestly (0.957 vs 0.923).
+- The P1 to P4 gap is a population effect: unseen creators score 0.898 even in P1.
 - Creator grouping alone does not inflate scores when reputation is causal.
-- Published creator reputation shows no look-ahead gain over a causal rebuild.
+- Published creator reputation tracks a causal rebuild, not a look-ahead one.
 - On unseen creators, LightGBM beats the best one-feature rule by 0.107 PR-AUC.
-- Classic-trained models transfer poorly to mayhem-mode launches (ROC-AUC 0.735).
+- Half of the rugs come within 26 s; for rugs a minute away PR-AUC is 0.746.
