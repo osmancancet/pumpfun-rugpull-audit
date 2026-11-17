@@ -50,9 +50,11 @@ def build(full):
     d = d[~already]; flow.append(("not rugged before the snapshot", len(d)))
     migrated = d.migrate_dt_s.notna() & (d.migrate_dt_s <= d.f10_age)
     d = d[~migrated]; flow.append(("not migrated before the snapshot", len(d)))
+    soon = d.rugged.eq(1) & (d.rug_dt_s - d.f10_age < C.MIN_LEAD_S)
+    d = d[~soon]; flow.append((f"no rug within {C.MIN_LEAD_S} s after the snapshot", len(d)))
 
     d["y_rug300"] = (d.rugged.eq(1) & (d.rug_dt_s <= C.HORIZON_S)).astype(int)
-    d["y_rug60"] = (d.rugged.eq(1) & (d.rug_dt_s <= 60)).astype(int)
+    d["y_rug120"] = (d.rugged.eq(1) & (d.rug_dt_s <= 120)).astype(int)
     d["y_rug3600"] = (d.rugged.eq(1) & (d.rug_dt_s <= 3600)).astype(int)
     d["y_rug_any"] = d.rugged.eq(1).astype(int)
     d["y_rug_drain"] = d.rug_branch_inferred.eq("drain").astype(int)
@@ -79,6 +81,7 @@ def build(full):
     lg = lg[(lg.create_lag_s.fillna(0) <= C.MAX_CREATE_LAG_S) & (lg.f10_age >= 0)]
     lg = lg[~(lg.rugged.eq(1) & (lg.rug_dt_s <= lg.f10_age))]
     lg = lg[~(lg.migrate_dt_s.notna() & (lg.migrate_dt_s <= lg.f10_age))]
+    lg = lg[~(lg.rugged.eq(1) & (lg.rug_dt_s - lg.f10_age < C.MIN_LEAD_S))]
     lg["y_rug300"] = (lg.rugged.eq(1) & (lg.rug_dt_s <= C.HORIZON_S)).astype(int)
     lg["day"] = pd.to_datetime(lg.t0, unit="s", utc=True).dt.strftime("%Y-%m-%d")
     for c in ["f10_rep_rug", "f10_rep_grad", "c_rep_rug", "c_rep_grad"]:

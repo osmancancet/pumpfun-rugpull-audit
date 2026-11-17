@@ -3,8 +3,8 @@ import pandas as pd, config as C
 R = pd.read_csv(C.RESULTS / "R6_review_analyses.csv")
 def row(what): return R[R.what == what].iloc[0]
 f3 = lambda x: f"{x:.3f}"
-T7 = [("Lead time: rugs ≥ 30 s after the snapshot vs all non-rugs", "rugs leaving >= 30 s after the snapshot vs non-rugs"),
-      ("Lead time: rugs ≥ 60 s after the snapshot vs all non-rugs", "rugs leaving >= 60 s after the snapshot vs non-rugs"),
+T7 = [("Lead time: rugs ≥ 120 s after the snapshot vs all non-rugs", "rugs leaving >= 120 s after the snapshot vs non-rugs"),
+      ("Lead time: rugs ≥ 180 s after the snapshot vs all non-rugs", "rugs leaving >= 180 s after the snapshot vs non-rugs"),
       ("Peak reserves ≥ 1 SOL", "peak reserves >= 1 SOL"), ("Peak reserves ≥ 5 SOL", "peak reserves >= 5 SOL"),
       ("P1 test, creator seen in P1 training", "P1 test, creator seen in P1 training"),
       ("P1 test, creator unseen in P1 training", "P1 test, creator unseen in P1 training"),

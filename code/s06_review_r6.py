@@ -62,7 +62,7 @@ q = np.nanquantile(lt[pos], [0.1, 0.25, 0.5, 0.75, 0.9])
 put("A", "lead time of hold-out rugs (s): q10,q25,median,q75,q90", pos.sum(),
     q10=q[0], q25=q[1], median=q[2], q75=q[3], q90=q[4],
     share_lt10=float(np.mean(lt[pos] < 10)), share_lt30=float(np.mean(lt[pos] < 30)), share_lt60=float(np.mean(lt[pos] < 60)))
-for L in (30, 60):
+for L in (120, 180):
     keep = ~pos | (lt >= L)          # drop rugs that leave within L s of the snapshot; non-rugs kept
     pr_roc("A", f"rugs leaving >= {L} s after the snapshot vs non-rugs", keep, s_te, y_te, g_te)
 

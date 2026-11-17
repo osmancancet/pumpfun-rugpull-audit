@@ -18,6 +18,10 @@ ALPHA = 0.05
 # primary target is a rug within 300 s of launch that happens AFTER that snapshot.
 PRIMARY_TARGET = "y_rug300"
 HORIZON_S = 300
+# Actionable target (revision of 17 Nov 2026): launches that rug within MIN_LEAD_S of the snapshot are
+# collapses already under way and cannot be acted on; they are excluded from the analysis set (they still
+# count in creator histories). The primary target is then a rug between snapshot + MIN_LEAD_S and 300 s.
+MIN_LEAD_S = 60
 
 # Data-quality filters (dataset card, Known issues KI-01..KI-18)
 MAX_CREATE_LAG_S = 1.0      # above 1 s the f10 snapshot is not the true early state

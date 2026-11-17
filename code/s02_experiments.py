@@ -228,7 +228,7 @@ T.to_csv(OUT / "E3_E4_paired_tests.csv", index=False)
 save()
 
 # ========================================================================= E5 robustness
-for tgt in ["y_rug60", "y_rug3600", "y_rug_any", "y_rug_drain", "y_rug_devdump", "y_collapse90"]:
+for tgt in ["y_rug120", "y_rug3600", "y_rug_any", "y_rug_drain", "y_rug_devdump", "y_collapse90"]:
     if D.loc[TR, tgt].nunique() == 2 and D.loc[TE, tgt].nunique() == 2:
         evaluate(f"E5|label={tgt}", TR, TE, FEATS_C, target=tgt, models=["prior", "rule_rep", best])
 # label-rank agreement: does the model ranking survive a change of label?
