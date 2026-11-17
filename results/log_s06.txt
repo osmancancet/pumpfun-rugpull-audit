@@ -1,3 +1,6 @@
+# command: cd code && python3 s06_review_r6.py (project .venv, Python 3.9.6, macOS arm64; package versions in results/environment.txt)
+# run on the author's machine on 2026-11-17 against data revision 022649eb (same data and environment as the run of record); runtime not recorded
+# library warnings removed; values are also in results/R6_review_analyses.csv
 ref hold-out, all launches 61840 {'prevalence': 0.6855271668822769, 'pr_auc': 0.9529292578638945, 'pr_lo': 0.9461594214964807, 'pr_hi': 0.9588197581451616, 'roc_auc': 0.9189160998904643, 'roc_lo': 0.9091535239887688, 'roc_hi': 0.9276632616249517}
 A lead time of hold-out rugs (s): q10,q25,median,q75,q90 42393 {'q10': np.float64(3.222200048446655), 'q25': np.float64(8.983000040054321), 'median': np.float64(25.67799982070923), 'q75': np.float64(65.74299990653992), 'q90': np.float64(140.8010000152588), 'share_lt10': 0.2727808836364494, 'share_lt30': 0.5437454296699927, 'share_lt60': 0.7241289835586063}
 A rugs leaving >= 30 s after the snapshot vs non-rugs 38789 {'prevalence': 0.4986465234989301, 'pr_auc': 0.8607363417597689, 'pr_lo': 0.8445539481777655, 'pr_hi': 0.8763017588517408, 'roc_auc': 0.8862928404358381, 'roc_lo': 0.8731197040557191, 'roc_hi': 0.8976438159088302}

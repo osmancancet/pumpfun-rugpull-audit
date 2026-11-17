@@ -6,7 +6,7 @@ rug-pull prediction for Solana pump.fun memecoins" (O. C. Çetlenbik).
 **Status (2026-10-30, after internal review round 5):** `results/` holds the full run of the corrected code on
 dataset revision 022649eb0504005be0ae34833d224341777355be (Python 3.9, macOS arm64, 41 min; package versions in
 `results/environment.txt`). Two consecutive runs gave identical numbers. The full console output of the run of record is in `results/log_run_of_record.txt` (every logged PR-AUC matches `results/all_runs.csv`), and the unit-test output in `results/log_smoke.txt`. All 53 day files of the `launches` and `launches_legacy` subsets match the SHA-256 values in the dataset card (checked again on 17 November 2026 with the current `verify_data.py`; the run of record used an earlier version whose pattern skipped card rows carrying a note and also counted files of unused configurations, hence its `listed=74 missing=30` line). Every number in the manuscript is copied
-from `results/key_numbers.md`. `smoke_test.py` (17/17 pass) checks the code on **synthetic** data only; its outputs
+from `results/key_numbers.md`, except the post hoc values of Section 5.9, which come from `results/R6_review_analyses.csv`. `smoke_test.py` (17/17 pass) checks the code on **synthetic** data only; its outputs
 (`results_smoke/`) are not research results.
 
 On macOS, LightGBM needs OpenMP (`brew install libomp`). With huggingface_hub 1.x the download command is `hf download`
@@ -56,6 +56,8 @@ library versions.
 | `s03_figures_tables.py` | figures 2–5 and markdown tables for the manuscript |
 | `s05_key_numbers.py` | every number the manuscript cites, with its source file -> `results/key_numbers.md` |
 | `s04_supplementary.py` | post hoc (round 3): S1 published/oracle/no reputation minus causal (paired clustered bootstrap); S2 LightGBM vs all scorers on the P4 hold-out with BH |
+| `s06_review_r6.py` | post hoc (17 Nov 2026): lead time, peak-reserve subsets, validation-fixed thresholds, P4 majority class, classic-only runs, matched populations, mayhem intervals, drift slope, reserves rule, discordant-subset audit, scorecard -> `results/R6_review_analyses.csv` (log `results/log_s06.txt`) |
+| `s06_tables.py` | Tables 7 and 8 of the manuscript -> `results/table7_review_r6.md` |
 | `crosscheck_rpc.py` | read-only public-RPC check of creator, timing and mint metadata for 8 random launches |
 | `verify_data.py` | offline sha256 check against the dataset card |
 

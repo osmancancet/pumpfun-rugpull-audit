@@ -24,5 +24,5 @@ for lab, w in T7:
 out += ["", "| Threshold set on the validation days | Share flagged (test) | Precision | Recall | MCC | Rugs among unflagged | Graduated tokens flagged |", "|---|---|---|---|---|---|---|"]
 for lab in ["training-prevalence share", "budget 10%", "budget 5%", "budget 1%"]:
     r = row(f"threshold from validation days, {lab}")
-    out.append(f"| {lab.replace('budget', 'Budget').replace('training', 'Training')} | {f3(r.flag_rate_test)} | {f3(r.precision)} | {f3(r.recall)} | {f3(r.mcc)} | {f3(r.false_safe_rate)} | {f3(r.graduated_flagged)} of {int(r.n_graduated)} |")
+    out.append(f"| {lab.replace('budget', 'Budget').replace('training', 'Training')} | {f3(r.flag_rate_test)} | {f3(r.precision)} | {f3(r.recall)} | {f3(r.mcc)} | {f3(r.false_safe_rate)} | {round(r.graduated_flagged * r.n_graduated)} of {int(r.n_graduated)} ({r.graduated_flagged:.1%}) |")
 (C.RESULTS / "table7_review_r6.md").write_text("\n".join(out) + "\n"); print("\n".join(out))

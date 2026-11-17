@@ -20,7 +20,7 @@
 
 | Threshold set on the validation days | Share flagged (test) | Precision | Recall | MCC | Rugs among unflagged | Graduated tokens flagged |
 |---|---|---|---|---|---|---|
-| Training-prevalence share | 0.667 | 0.900 | 0.875 | 0.654 | 0.256 | 0.638 of 483 |
-| Budget 10% | 0.114 | 0.983 | 0.164 | 0.230 | 0.647 | 0.021 of 483 |
-| Budget 5% | 0.057 | 0.990 | 0.082 | 0.161 | 0.667 | 0.006 of 483 |
-| Budget 1% | 0.019 | 0.997 | 0.027 | 0.093 | 0.680 | 0.000 of 483 |
+| Training-prevalence share | 0.667 | 0.900 | 0.875 | 0.654 | 0.256 | 308 of 483 (63.8%) |
+| Budget 10% | 0.114 | 0.983 | 0.164 | 0.230 | 0.647 | 10 of 483 (2.1%) |
+| Budget 5% | 0.057 | 0.990 | 0.082 | 0.161 | 0.667 | 3 of 483 (0.6%) |
+| Budget 1% | 0.019 | 0.997 | 0.027 | 0.093 | 0.680 | 0 of 483 (0.0%) |
