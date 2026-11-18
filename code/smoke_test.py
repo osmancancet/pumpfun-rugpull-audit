@@ -115,7 +115,7 @@ import s01_build_dataset as B
 d, lg, flow = B.build(syn)
 out = C.ROOT / "results_smoke"; out.mkdir(exist_ok=True)
 B.report(d, flow, out)
-d.to_pickle(out / "analysis.pkl")
+d.to_pickle(out / "analysis.pkl"); syn.to_pickle(out / "syn_raw.pkl")
 r = subprocess.run([sys.executable, "s02_experiments.py", "--smoke"], capture_output=True, text=True)
 print(r.stdout[-400:], r.stderr[-2000:])
 results.append(ok(r.returncode == 0, "s02_experiments.py --smoke runs end-to-end"))
@@ -123,5 +123,12 @@ if r.returncode == 0:
     a = pd.read_csv(out / "E2_reputation_agreement.csv")
     results.append(ok(a.loc[a.reference == "o_rep_rug", "exact_share"].iloc[0] > a.loc[a.reference == "c_rep_rug", "exact_share"].iloc[0],
                       "audit flags a look-ahead reputation field (synthetic oracle) as closer to oracle than to causal"))
+r7 = subprocess.run([sys.executable, "s07_chatbot_review.py", "--smoke"], capture_output=True, text=True)
+print(r7.stdout[-400:], r7.stderr[-2000:])
+results.append(ok(r7.returncode == 0, "s07_chatbot_review.py --smoke runs end-to-end"))
+if r7.returncode == 0:
+    r = pd.read_csv(out / "R7_chatbot_review.csv"); m = r[r.block == "M"].iloc[0]
+    results.append(ok(m.n == m.actionable_n + m.fast_rug_n and m.check_actionable == m.actionable_n,
+                      "full-stream cohort = actionable cohort + fast rugs"))
 print(f"\n{sum(results)}/{len(results)} checks passed (synthetic data; not research results)")
 sys.exit(0 if all(results) else 1)

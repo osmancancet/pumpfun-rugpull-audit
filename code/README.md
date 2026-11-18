@@ -64,6 +64,7 @@ library versions.
 | `s04_supplementary.py` | post hoc (round 3): S1 published/oracle/no reputation minus causal (paired clustered bootstrap); S2 LightGBM vs all scorers on the P4 hold-out with BH |
 | `s06_review_r6.py` | post hoc (17 Nov 2026): lead time, peak-reserve subsets, validation-fixed thresholds, P4 majority class, classic-only runs, matched populations, mayhem intervals, drift slope, reserves rule, discordant-subset audit, scorecard -> `results/R6_review_analyses.csv` (log `results/log_s06.txt`) |
 | `s06_tables.py` | Tables 7 and 8 of the manuscript -> `results/table7_review_r6.md` |
+| `s07_chatbot_review.py` | post hoc (18 Nov 2026): matched comparison by creator-history bin, full-stream scoring of every hold-out launch (fast rugs included), P4 defined on the full training window, money at risk on P4, look-ahead audit without history truncation -> `results/R7_chatbot_review.csv` |
 | `crosscheck_rpc.py` | read-only public-RPC check of creator, timing and mint metadata for 8 random launches |
 | `verify_data.py` | offline sha256 check against the dataset card |
 
