@@ -8,3 +8,4 @@ create lag <= 1 s,951035
 non-negative snapshot age (KI-11),951035
 not rugged before the snapshot,935262
 not migrated before the snapshot,924742
+no rug within 60 s after the snapshot,473335

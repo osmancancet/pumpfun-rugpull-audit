@@ -1,48 +1,59 @@
-# command: cd code && python3 s06_review_r6.py (project .venv, Python 3.9.6, macOS arm64; package versions in results/environment.txt)
-# run on the author's machine on 2026-11-17 against data revision 022649eb (same data and environment as the run of record); runtime not recorded
-# library warnings removed; values are also in results/R6_review_analyses.csv
-ref hold-out, all launches 61840 {'prevalence': 0.6855271668822769, 'pr_auc': 0.9529292578638945, 'pr_lo': 0.9461594214964807, 'pr_hi': 0.9588197581451616, 'roc_auc': 0.9189160998904643, 'roc_lo': 0.9091535239887688, 'roc_hi': 0.9276632616249517}
-A lead time of hold-out rugs (s): q10,q25,median,q75,q90 42393 {'q10': np.float64(3.222200048446655), 'q25': np.float64(8.983000040054321), 'median': np.float64(25.67799982070923), 'q75': np.float64(65.74299990653992), 'q90': np.float64(140.8010000152588), 'share_lt10': 0.2727808836364494, 'share_lt30': 0.5437454296699927, 'share_lt60': 0.7241289835586063}
-A rugs leaving >= 30 s after the snapshot vs non-rugs 38789 {'prevalence': 0.4986465234989301, 'pr_auc': 0.8607363417597689, 'pr_lo': 0.8445539481777655, 'pr_hi': 0.8763017588517408, 'roc_auc': 0.8862928404358381, 'roc_lo': 0.8731197040557191, 'roc_hi': 0.8976438159088302}
-A rugs leaving >= 60 s after the snapshot vs non-rugs 31142 {'prevalence': 0.37553785884015156, 'pr_auc': 0.7456999257900725, 'pr_lo': 0.7187700966879997, 'pr_hi': 0.7693233260076784, 'roc_auc': 0.8646772133633487, 'roc_lo': 0.8501510769949775, 'roc_hi': 0.8779248488259959}
-B peak reserves >= 1 SOL 29740 {'prevalence': 0.8481842636180229, 'pr_auc': 0.9562821097676004, 'pr_lo': 0.9504376630685011, 'pr_hi': 0.9619362391186526, 'roc_auc': 0.8188298711376131, 'roc_lo': 0.8063378625498429, 'roc_hi': 0.8305546390817975}
-B peak reserves >= 5 SOL 16700 {'prevalence': 0.8749101796407186, 'pr_auc': 0.9551197459773335, 'pr_lo': 0.9484229857894032, 'pr_hi': 0.9604603021271374, 'roc_auc': 0.7797312588248773, 'roc_lo': 0.7638679618442885, 'roc_hi': 0.7942398600289282}
-B PR-AUC weighted by peak reserves (SOL) 61840 {'weighted_pr_auc': 0.896892403173462, 'weighted_prevalence': 0.7699992818604121}
-C threshold from validation days, training-prevalence share 61840 {'flag_rate_val': 0.6611846376435235, 'flag_rate_test': 0.6665426908150065, 'precision': np.float64(0.9004100050947379), 'recall': np.float64(0.8754747246007596), 'mcc': 0.6543222587464412, 'false_safe_rate': 0.2560011638620823, 'graduated_flagged': 0.6376811594202898, 'n_graduated': 483}
-C threshold from validation days, budget 10% 61840 {'flag_rate_val': 0.1, 'flag_rate_test': 0.11426261319534282, 'precision': np.float64(0.9830172657797905), 'recall': np.float64(0.1638478050621565), 'mcc': 0.23012733182431672, 'false_safe_rate': 0.6471501077153394, 'graduated_flagged': 0.020703933747412008, 'n_graduated': 483}
-C threshold from validation days, budget 5% 61840 {'flag_rate_val': 0.05, 'flag_rate_test': 0.05653298835705045, 'precision': np.float64(0.9899885583524027), 'recall': np.float64(0.08164083693062534), 'mcc': 0.1605151163255028, 'false_safe_rate': 0.6672836966954614, 'graduated_flagged': 0.006211180124223602, 'n_graduated': 483}
-C threshold from validation days, budget 1% 61840 {'flag_rate_val': 0.01, 'flag_rate_test': 0.018741914618369986, 'precision': np.float64(0.996548748921484), 'recall': np.float64(0.0272450640435921), 'mcc': 0.09257676010252626, 'false_safe_rate': 0.6795866910565086, 'graduated_flagged': 0.0, 'n_graduated': 483}
-D P4 hold-out, lgbm 30030 {'nonrug_prevalence': 0.41232101232101237, 'nonrug_pr_auc': 0.9064074817403054, 'nonrug_lo': 0.8863506956079586, 'nonrug_hi': 0.9236180807757461, 'false_safe@1%': 0.0033333333333332993, 'false_safe@5%': 0.0006657789613848664, 'false_safe@10%': 0.0006139693639694022}
-D P4 hold-out, rule_insider 30030 {'nonrug_prevalence': 0.41232101232101237, 'nonrug_pr_auc': 0.7944649919151624, 'nonrug_lo': 0.7544824105853423, 'nonrug_hi': 0.8301606093550201, 'false_safe@1%': 0.04536862003780717, 'false_safe@5%': 0.04536862003780717, 'false_safe@10%': 0.045368620037807283}
-D P4 hold-out, rule_rep 30030 {'nonrug_prevalence': 0.41232101232101237, 'nonrug_pr_auc': 0.6064454958437133, 'nonrug_lo': 0.569277665462976, 'nonrug_hi': 0.6434409133798829, 'false_safe@1%': 0.11578372474057896, 'false_safe@5%': 0.11578372474057896, 'false_safe@10%': 0.2315411285620922}
-D P4 hold-out, prior 30030 {'nonrug_prevalence': 0.41232101232101237, 'nonrug_pr_auc': 0.4123210123210123, 'nonrug_lo': 0.38059084897929724, 'nonrug_hi': 0.4460191133448286, 'false_safe@1%': 0.5876789876789876, 'false_safe@5%': 0.5876789876789876, 'false_safe@10%': 0.5876789876789876}
-E P1 random mint, classic 127380 {'prevalence': 0.5732611084942691, 'pr_auc': 0.9352958498428451, 'pr_lo': 0.930992416991061, 'pr_hi': 0.9403578643223963, 'roc_auc': 0.9285664999237266, 'roc_lo': 0.9234193086079213, 'roc_hi': 0.9340485575604888}
-E P4 hold-out, classic 22976 {'prevalence': 0.5173659470752089, 'pr_auc': 0.9092929284265137, 'pr_lo': 0.9003530007634778, 'pr_hi': 0.9182173438473056, 'roc_auc': 0.921594761832124, 'roc_lo': 0.9113762481492573, 'roc_hi': 0.9309480211245118}
-E P4 classic, lgbm minus rule_insider 22976 {'ap_diff': 0.082330497231348, 'ci_lo': 0.07332952744246195, 'ci_hi': 0.0915806490881947, 'boot_p': 0.0}
-E P4 classic, lgbm minus rule_dev 22976 {'ap_diff': 0.08816993952384311, 'ci_lo': 0.07811133207648367, 'ci_hi': 0.09871023588275418, 'boot_p': 0.0}
-E P4 classic, lgbm minus rule_rep 22976 {'ap_diff': 0.2525597525889255, 'ci_lo': 0.23069900606104912, 'ci_hi': 0.2765943118941574, 'boot_p': 0.0}
-E mayhem share, P1 test 184948 {'mayhem_share': 0.311265869325432}
-E mayhem share, P3 hold-out 61840 {'mayhem_share': 0.3255821474773609}
-E mayhem share, P4 hold-out 30030 {'mayhem_share': 0.2348984348984349}
-F P1 test, creator seen in P1 training 142857 {'prevalence': 0.6992866992866993, 'pr_auc': 0.9659532335610688, 'pr_lo': 0.9616726498873344, 'pr_hi': 0.9701147852133702, 'roc_auc': 0.9348037014794593, 'roc_lo': 0.9281599620030546, 'roc_hi': 0.9414883836880634}
-F P1 test, creator unseen in P1 training 42091 {'prevalence': 0.5765365517569077, 'pr_auc': 0.8979812345592327, 'pr_lo': 0.8939537983169706, 'pr_hi': 0.9021496541619319, 'roc_auc': 0.8949614906084088, 'roc_lo': 0.8916341979735725, 'roc_hi': 0.8982375840520959}
-F P3 hold-out, creator seen in training 31810 {'prevalence': 0.7779000314366551, 'pr_auc': 0.967306315603312, 'pr_lo': 0.9601684415257006, 'pr_hi': 0.9731114712694101, 'roc_auc': 0.9142133984619052, 'roc_lo': 0.894728766510689, 'roc_hi': 0.9289637735051759}
-F P3 hold-out, creator unseen in training (= P4) 30030 {'prevalence': 0.5876789876789876, 'pr_auc': 0.922596931095843, 'pr_lo': 0.9089864736563271, 'pr_hi': 0.9342556627223149, 'roc_auc': 0.9111517873787484, 'roc_lo': 0.8981233900954337, 'roc_hi': 0.9226842480131301}
-G mayhem hold-out, trained on classic 20134 {'prevalence': 0.8719578821893315, 'pr_auc': 0.947157337926605, 'pr_lo': 0.9317281394605126, 'pr_hi': 0.9589535262942676, 'roc_auc': 0.7347023272618389, 'roc_lo': 0.6825795118195175, 'roc_hi': 0.7839324600284419}
-G mayhem hold-out ECE, trained on classic 20134 {'ece': 0.07512216704450218}
-G mayhem hold-out, trained on mayhem 20134 {'prevalence': 0.8719578821893315, 'pr_auc': 0.9653129686851358, 'pr_lo': 0.9534568143322781, 'pr_hi': 0.9732028971262515, 'roc_auc': 0.8187648135077803, 'roc_lo': 0.7913199107914538, 'roc_hi': 0.8402551306032244}
-G mayhem hold-out ECE, trained on mayhem 20134 {'ece': 0.02266349205504137}
-G mayhem hold-out, pooled (all training launches) 20134 {'prevalence': 0.8719578821893315, 'pr_auc': 0.9679222062730782, 'pr_lo': 0.9571399204648464, 'pr_hi': 0.975054539000089, 'roc_auc': 0.8308617234778886, 'roc_lo': 0.8050502954859466, 'roc_hi': 0.8508462259294581}
-G mayhem hold-out ECE, pooled (all training launches) 20134 {'ece': 0.013602375150164247}
-H daily PR-AUC slope per day, all launches 12 {'slope': np.float64(-0.00012101656672875531), 'slope_lo': np.float64(-0.000990107681348687), 'slope_hi': np.float64(0.0007480745478911763), 'pr_min': 0.9434836247750084, 'pr_max': 0.9578394383888259}
-H daily PR-AUC slope per day, creators unseen in training 12 {'slope': np.float64(0.0016862223084063526), 'slope_lo': np.float64(-0.00015257693374828006), 'slope_hi': np.float64(0.0035250215505609854), 'pr_min': 0.9054826449640538, 'pr_max': 0.9373232539945322}
-I y_rug_drain, reserves rule (f10_rs) 61840 {'prevalence': 0.26172380336351875, 'pr_auc': 0.906677122884347, 'pr_lo': 0.8940205836738526, 'pr_hi': 0.9177926887683516, 'roc_auc': 0.9562873503567525, 'roc_lo': 0.9508697697552089, 'roc_hi': 0.9609392997255869}
-I y_rug_drain, lgbm minus reserves rule 61840 {'ap_diff': 0.026284304459764707, 'ci_lo': 0.02249368555821057, 'ci_hi': 0.030230576457302087, 'boot_p': 0.0}
-I y_collapse90, reserves rule (f10_rs) 61840 {'prevalence': 0.464391979301423, 'pr_auc': 0.9190521122726143, 'pr_lo': 0.9057574599647228, 'pr_hi': 0.9303525451860737, 'roc_auc': 0.9233162091591325, 'roc_lo': 0.9114986941709663, 'roc_hi': 0.9331477444500931}
-I y_collapse90, lgbm minus reserves rule 61840 {'ap_diff': 0.022604549935977825, 'ci_lo': 0.019313305882411962, 'ci_hi': 0.025943410024971227, 'boot_p': 0.0}
-J launches where causal and oracle rug shares differ 180838 {'share_all': 0.27918041948541555, 'exact_causal': 0.5514217144626683, 'exact_oracle': 0.02622789457967905, 'mae_causal': 0.014268227110638609, 'mae_oracle': 0.07862352592125543, 'closer_to_causal': 0.6891250732699986, 'closer_to_oracle': 0.31083621805151573}
-K scorecard (logistic, 3 features), hold-out 61840 {'prevalence': 0.6855271668822769, 'pr_auc': 0.904070888234201, 'pr_lo': 0.8946423908822496, 'pr_hi': 0.9127176069351991, 'roc_auc': 0.8647586355031387, 'roc_lo': 0.8517067452570137, 'roc_hi': 0.8767797366275865}
-K lgbm minus scorecard, hold-out 61840 {'ap_diff': 0.04885836962969348, 'ci_lo': 0.043191423359604866, 'ci_hi': 0.054732659689436594, 'boot_p': 0.0}
-K scorecard (logistic, 3 features), P4 hold-out 30030 {'prevalence': 0.5876789876789876, 'pr_auc': 0.8542142323371181, 'pr_lo': 0.8370025244251135, 'pr_hi': 0.8699256541497887, 'roc_auc': 0.8525726557707478, 'roc_lo': 0.8362816189365649, 'roc_hi': 0.8681217444264469}
-K lgbm minus scorecard, P4 hold-out 30030 {'ap_diff': 0.06838269875872482, 'ci_lo': 0.059695397441685255, 'ci_hi': 0.07807213217918572, 'boot_p': 0.0}
+# command: bash code/run_all.sh (fourth full run, actionable target MIN_LEAD_S = 60), project .venv, Python 3.9.6, macOS arm64; package versions in results/environment.txt
+# run on the author's machine on 2026-11-18 against data revision 022649eb; library warnings removed
+ref hold-out, all launches 31142 {'prevalence': 0.37553785884015156, 'pr_auc': 0.7545228850079388, 'pr_lo': 0.7250856335428904, 'pr_hi': 0.7804177624762302, 'roc_auc': 0.8655617828687889, 'roc_lo': 0.8508401464713038, 'roc_hi': 0.8789091846600509}
+A lead time of hold-out rugs (s): q10,q25,median,q75,q90 11695 {'q10': np.float64(66.22160004806518), 'q25': np.float64(79.75750007629395), 'median': np.float64(112.81799983978271), 'q75': np.float64(172.22499994754793), 'q90': np.float64(232.58600005912785), 'share_lt10': 0.0, 'share_lt30': 0.0, 'share_lt60': 0.0}
+A rugs leaving >= 120 s after the snapshot vs non-rugs 24815 {'prevalence': 0.2163207737255692, 'pr_auc': 0.5455719450858639, 'pr_lo': 0.5092097512113624, 'pr_hi': 0.5800166576810293, 'roc_auc': 0.850358557942306, 'roc_lo': 0.8341456069358207, 'roc_hi': 0.8648567096252913}
+A rugs leaving >= 180 s after the snapshot vs non-rugs 22115 {'prevalence': 0.12064209812344563, 'pr_auc': 0.35715750895780735, 'pr_lo': 0.31890847858641036, 'pr_hi': 0.39922485847566025, 'roc_auc': 0.8451487027093745, 'roc_lo': 0.8260006264398817, 'roc_hi': 0.8629108543873795}
+B peak reserves >= 1 SOL 10686 {'prevalence': 0.5774845592363841, 'pr_auc': 0.7618082010085733, 'pr_lo': 0.7354374210421343, 'pr_hi': 0.7847513426461464, 'roc_auc': 0.7248055375651445, 'roc_lo': 0.707738912236651, 'roc_hi': 0.7406048089965014}
+B peak reserves >= 5 SOL 5404 {'prevalence': 0.6134344929681718, 'pr_auc': 0.7390009683031893, 'pr_lo': 0.7165754168553988, 'pr_hi': 0.7599064778530975, 'roc_auc': 0.6624953520090512, 'roc_lo': 0.6450453072197793, 'roc_hi': 0.6801381023392569}
+B PR-AUC weighted by peak reserves (SOL) 31142 {'weighted_pr_auc': 0.6302710858124769, 'weighted_prevalence': 0.49354626571119825}
+C threshold from validation days, training-prevalence share 31142 {'flag_rate_val': 0.34588939918889156, 'flag_rate_test': 0.34554620769378974, 'precision': np.float64(0.710807545767122), 'recall': np.float64(0.6540401881145789), 'mcc': 0.5030694449784054, 'false_safe_rate': 0.19851822776115008, 'graduated_flagged': 0.44584382871536526, 'n_graduated': 397}
+C threshold from validation days, budget 10% 31142 {'flag_rate_val': 0.1, 'flag_rate_test': 0.084130755892364, 'precision': np.float64(0.8347328244274809), 'recall': np.float64(0.1870029927319367), 'mcc': 0.2873941052643245, 'false_safe_rate': 0.3333567071032887, 'graduated_flagged': 0.04785894206549118, 'n_graduated': 397}
+C threshold from validation days, budget 5% 31142 {'flag_rate_val': 0.05, 'flag_rate_test': 0.03744139746965513, 'precision': np.float64(0.8816466552315609), 'recall': np.float64(0.08790081231295425), 'mcc': 0.20612297447838246, 'false_safe_rate': 0.35585134774486255, 'graduated_flagged': 0.010075566750629723, 'n_graduated': 397}
+C threshold from validation days, budget 1% 31142 {'flag_rate_val': 0.01, 'flag_rate_test': 0.00783507802967054, 'precision': np.float64(0.9385245901639344), 'recall': np.float64(0.019581017528858487), 'mcc': 0.10331133374509459, 'false_safe_rate': 0.3710919800634345, 'graduated_flagged': 0.0, 'n_graduated': 397}
+D P4 hold-out, lgbm 18337 {'nonrug_prevalence': 0.6822271909254513, 'nonrug_pr_auc': 0.9428510131303109, 'nonrug_lo': 0.9294626699882375, 'nonrug_hi': 0.9537423995322453, 'false_safe@1%': 0.0, 'false_safe@5%': 0.0, 'false_safe@10%': 0.0}
+D P4 hold-out, rule_insider 18337 {'nonrug_prevalence': 0.6822271909254513, 'nonrug_pr_auc': 0.9013336434585574, 'nonrug_lo': 0.8792038219926771, 'nonrug_hi': 0.9196555675322319, 'false_safe@1%': 0.0030832476875641834, 'false_safe@5%': 0.0030832476875642945, 'false_safe@10%': 0.0030832476875642945}
+D P4 hold-out, rule_rep 18337 {'nonrug_prevalence': 0.6822271909254513, 'nonrug_pr_auc': 0.7875740906320503, 'nonrug_lo': 0.7613733614029786, 'nonrug_hi': 0.8111241839402544, 'false_safe@1%': 0.0595741085009297, 'false_safe@5%': 0.07652887235007333, 'false_safe@10%': 0.08188941395048266}
+D P4 hold-out, prior 18337 {'nonrug_prevalence': 0.6822271909254513, 'nonrug_pr_auc': 0.6822271909254513, 'nonrug_lo': 0.6571629255540414, 'nonrug_hi': 0.706456254623682, 'false_safe@1%': 0.31777280907454875, 'false_safe@5%': 0.31777280907454875, 'false_safe@10%': 0.31777280907454875}
+E P1 random mint, classic 76854 {'prevalence': 0.2931922866734327, 'pr_auc': 0.7284459950098682, 'pr_lo': 0.7141916080223168, 'pr_hi': 0.7441365248208337, 'roc_auc': 0.888841636612074, 'roc_lo': 0.8812877660739815, 'roc_hi': 0.8969067596087268}
+E P4 hold-out, classic 15384 {'prevalence': 0.27229589183567343, 'pr_auc': 0.6781130631837494, 'pr_lo': 0.6606515534192526, 'pr_hi': 0.6978509863059755, 'roc_auc': 0.8871166545529451, 'roc_lo': 0.8739918454328921, 'roc_hi': 0.9001909386778406}
+E P4 classic, lgbm minus rule_insider 15384 {'ap_diff': 0.11373031656319743, 'ci_lo': 0.09831098949659774, 'ci_hi': 0.1299710831726935, 'boot_p': 0.0}
+E P4 classic, lgbm minus rule_dev 15384 {'ap_diff': 0.09360033109763721, 'ci_lo': 0.07845289466180164, 'ci_hi': 0.1103565607860304, 'boot_p': 0.0}
+E P4 classic, lgbm minus rule_rep 15384 {'ap_diff': 0.28468038659249695, 'ci_lo': 0.2606064161243026, 'ci_hi': 0.31153724494703144, 'boot_p': 0.0}
+E mayhem share, P1 test 94667 {'mayhem_share': 0.18816483040552673}
+E mayhem share, P3 hold-out 31142 {'mayhem_share': 0.22317127994348468}
+E mayhem share, P4 hold-out 18337 {'mayhem_share': 0.1610405191688935}
+F P1 test, creator seen in P1 training 67390 {'prevalence': 0.3726220507493693, 'pr_auc': 0.791802159791522, 'pr_lo': 0.7730413548393046, 'pr_hi': 0.8104926254925989, 'roc_auc': 0.8849409706548281, 'roc_lo': 0.8739447630126012, 'roc_hi': 0.8963187229200307}
+F P1 test, creator unseen in P1 training 27277 {'prevalence': 0.32144297393408366, 'pr_auc': 0.7068995894568301, 'pr_lo': 0.6967488728785205, 'pr_hi': 0.7166786379797565, 'roc_auc': 0.8636444909371374, 'roc_lo': 0.8595590009143527, 'roc_hi': 0.8679425123073716}
+F P3 hold-out, creator seen in training 12805 {'prevalence': 0.4582584927762593, 'pr_auc': 0.7986443955568563, 'pr_lo': 0.7582875478525608, 'pr_hi': 0.8313877652188338, 'roc_auc': 0.8526040897437145, 'roc_lo': 0.8235713585779014, 'roc_hi': 0.875195673527502}
+F P3 hold-out, creator unseen in training (= P4) 18337 {'prevalence': 0.31777280907454875, 'pr_auc': 0.6949791898712732, 'pr_lo': 0.6686808104754737, 'pr_hi': 0.7226756723875761, 'roc_auc': 0.8681459843280344, 'roc_lo': 0.8508805849516042, 'roc_hi': 0.8836603000059715}
+G mayhem hold-out, trained on classic 6950 {'prevalence': 0.6290647482014389, 'pr_auc': 0.7212792402485747, 'pr_lo': 0.6908458673480775, 'pr_hi': 0.7524256874992293, 'roc_auc': 0.6099287322456112, 'roc_lo': 0.5531033641043336, 'roc_hi': 0.6636002731139539}
+G mayhem hold-out ECE, trained on classic 6950 {'ece': 0.1253543556488863}
+G mayhem hold-out, trained on mayhem 6950 {'prevalence': 0.6290647482014389, 'pr_auc': 0.7985540387554888, 'pr_lo': 0.7526586841536345, 'pr_hi': 0.8361929998313767, 'roc_auc': 0.7130770642149741, 'roc_lo': 0.6784203651805983, 'roc_hi': 0.74386885792741}
+G mayhem hold-out ECE, trained on mayhem 6950 {'ece': 0.04668529972768985}
+G mayhem hold-out, pooled (all training launches) 6950 {'prevalence': 0.6290647482014389, 'pr_auc': 0.8185702010644853, 'pr_lo': 0.7745379533032142, 'pr_hi': 0.8520868695257623, 'roc_auc': 0.7348810879161204, 'roc_lo': 0.7009387246315459, 'roc_hi': 0.7644288608621644}
+G mayhem hold-out ECE, pooled (all training launches) 6950 {'ece': 0.02495148171496008}
+H daily PR-AUC slope per day, all launches 12 {'slope': np.float64(-0.0004428377366258883), 'slope_lo': np.float64(-0.002587171216787542), 'slope_hi': np.float64(0.0017014957435357652), 'pr_min': 0.7303197929401385, 'pr_max': 0.7656517585400403}
+H daily PR-AUC slope per day, creators unseen in training 12 {'slope': np.float64(-0.001206835500712839), 'slope_lo': np.float64(-0.00399433456631303), 'slope_hi': np.float64(0.0015806635648873513), 'pr_min': 0.6673730199191661, 'pr_max': 0.7155465629534423}
+I y_rug_drain, reserves rule (f10_rs) 31142 {'prevalence': 0.1600089910731488, 'pr_auc': 0.7830597862122669, 'pr_lo': 0.7628750113702625, 'pr_hi': 0.8023052458132175, 'roc_auc': 0.942097653985399, 'roc_lo': 0.9345286557173784, 'roc_hi': 0.9487181902901406}
+I y_rug_drain, lgbm minus reserves rule 31142 {'ap_diff': 0.06040670870911946, 'ci_lo': 0.052218502472910155, 'ci_hi': 0.06836894629937158, 'boot_p': 0.0}
+I y_collapse90, reserves rule (f10_rs) 31142 {'prevalence': 0.31770599190803417, 'pr_auc': 0.8466767706761662, 'pr_lo': 0.8298791658248249, 'pr_hi': 0.8635632231016342, 'roc_auc': 0.9156224513350552, 'roc_lo': 0.9041226718149451, 'roc_hi': 0.9257027145036514}
+I y_collapse90, lgbm minus reserves rule 31142 {'ap_diff': 0.04269231367389714, 'ci_lo': 0.036510270648433506, 'ci_hi': 0.04830512866336766, 'boot_p': 0.0}
+J launches where causal and oracle rug shares differ 115518 {'share_all': 0.4001427126487745, 'exact_causal': 0.5329732162952959, 'exact_oracle': 0.022334181685971018, 'mae_causal': 0.012995805855240208, 'mae_oracle': 0.09613264855600749, 'closer_to_causal': 0.6930867916688308, 'closer_to_oracle': 0.30687858169289634}
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  ret = a @ b
+  ret = a @ b
+  ret = a @ b
+K scorecard (logistic, 3 features), hold-out 31142 {'prevalence': 0.37553785884015156, 'pr_auc': 0.6504537789921494, 'pr_lo': 0.6294197411431555, 'pr_hi': 0.671032996344088, 'roc_auc': 0.81137504588446, 'roc_lo': 0.7937040940309774, 'roc_hi': 0.8264241763763105}
+K lgbm minus scorecard, hold-out 31142 {'ap_diff': 0.10406910601578945, 'ci_lo': 0.08718806130407557, 'ci_hi': 0.11887368030649298, 'boot_p': 0.0}
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  ret = a @ b
+  ret = a @ b
+  ret = a @ b
+K scorecard (logistic, 3 features), P4 hold-out 18337 {'prevalence': 0.31777280907454875, 'pr_auc': 0.6014445892179165, 'pr_lo': 0.577813507450791, 'pr_hi': 0.6245940645164314, 'roc_auc': 0.8091940657187653, 'roc_lo': 0.7889403075865211, 'roc_hi': 0.8270752445571887}
+K lgbm minus scorecard, P4 hold-out 18337 {'ap_diff': 0.09353460065335661, 'ci_lo': 0.07454408791426646, 'ci_hi': 0.11284282945857949, 'boot_p': 0.0}
 44 rows -> ~/Projeler/pumpfun-rugpull-makale/results/R6_review_analyses.csv

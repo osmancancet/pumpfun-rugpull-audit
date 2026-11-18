@@ -3,10 +3,16 @@
 Code accompanying the manuscript "Seen creators, settled labels: a leakage-aware audit of early
 rug-pull prediction for Solana pump.fun memecoins" (O. C. Çetlenbik).
 
-**Status (2026-10-30, after internal review round 5):** `results/` holds the full run of the corrected code on
-dataset revision 022649eb0504005be0ae34833d224341777355be (Python 3.9, macOS arm64, 41 min; package versions in
-`results/environment.txt`). Two consecutive runs gave identical numbers. The full console output of the run of record is in `results/log_run_of_record.txt` (every logged PR-AUC matches `results/all_runs.csv`), and the unit-test output in `results/log_smoke.txt`. All 53 day files of the `launches` and `launches_legacy` subsets match the SHA-256 values in the dataset card (checked again on 17 November 2026 with the current `verify_data.py`; the run of record used an earlier version whose pattern skipped card rows carrying a note and also counted files of unused configurations, hence its `listed=74 missing=30` line). Every number in the manuscript is copied
-from `results/key_numbers.md`, except the post hoc values of Section 5.9, which come from `results/R6_review_analyses.csv`. `smoke_test.py` (17/17 pass) checks the code on **synthetic** data only; its outputs
+**Status (2026-11-18, fourth full run):** `results/` holds the run of record with the actionable primary target
+(`config.MIN_LEAD_S = 60`: launches that rug less than 60 s after the snapshot are excluded from the analysis set but still
+count in creator histories), on dataset revision 022649eb0504005be0ae34833d224341777355be (Python 3.9.6, macOS arm64;
+package versions in `results/environment.txt`). The console output is in `results/log_run_of_record.txt` and
+`results/log_s06.txt`, and the unit-test output in `results/log_smoke.txt`. `results_target0/` keeps the third full run
+with the earlier full-stream target (rug within 300 s of launch, after the snapshot); the manuscript uses it only in
+its Table 9. All 53 day files of the `launches` and `launches_legacy` subsets match the SHA-256 values in the dataset card.
+Every number in the manuscript is copied from `results/key_numbers.md` (whose table labels follow the earlier table
+numbering) or, for Section 5.9, from `results/R6_review_analyses.csv`. `smoke_test.py` (17/17 pass) checks the code on
+**synthetic** data only; its outputs
 (`results_smoke/`) are not research results.
 
 On macOS, LightGBM needs OpenMP (`brew install libomp`). With huggingface_hub 1.x the download command is `hf download`

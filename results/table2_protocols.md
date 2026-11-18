@@ -1,10 +1,10 @@
 | protocol               | reps      |    pr |   pr_sd |   roc |   roc_sd |
 |:-----------------------|:----------|------:|--------:|------:|---------:|
-| P1_random_mint         | causalrep | 0.957 | nan     | 0.928 |  nan     |
-| P1_random_mint         | vendorrep | 0.955 | nan     | 0.925 |  nan     |
-| P2_creator_grouped     | causalrep | 0.958 | nan     | 0.924 |  nan     |
-| P2_creator_grouped     | vendorrep | 0.956 | nan     | 0.921 |  nan     |
-| P3_time_forward        | causalrep | 0.953 |   0.001 | 0.917 |    0.005 |
-| P3_time_forward        | vendorrep | 0.951 |   0.002 | 0.913 |    0.007 |
-| P4_time_unseen_creator | causalrep | 0.922 |   0.005 | 0.907 |    0.010 |
-| P4_time_unseen_creator | vendorrep | 0.914 |   0.007 | 0.899 |    0.014 |
+| P1_random_mint         | causalrep | 0.773 | nan     | 0.880 |  nan     |
+| P1_random_mint         | vendorrep | 0.768 | nan     | 0.877 |  nan     |
+| P2_creator_grouped     | causalrep | 0.753 | nan     | 0.868 |  nan     |
+| P2_creator_grouped     | vendorrep | 0.745 | nan     | 0.862 |  nan     |
+| P3_time_forward        | causalrep | 0.752 |   0.010 | 0.862 |    0.008 |
+| P3_time_forward        | vendorrep | 0.746 |   0.011 | 0.858 |    0.010 |
+| P4_time_unseen_creator | causalrep | 0.690 |   0.014 | 0.862 |    0.013 |
+| P4_time_unseen_creator | vendorrep | 0.675 |   0.012 | 0.854 |    0.017 |

@@ -1,0 +1,11 @@
+| step                              |    rows |
+|:----------------------------------|--------:|
+| launches subset                   | 1240719 |
+| SOL-quoted (KI-03)                | 1016047 |
+| decoder complete (KI-02)          | 1015473 |
+| outcome resolved (KI-08)          | 1004717 |
+| has f10 snapshot (KI-01)          |  951035 |
+| create lag <= 1 s                 |  951035 |
+| non-negative snapshot age (KI-11) |  951035 |
+| not rugged before the snapshot    |  935262 |
+| not migrated before the snapshot  |  924742 |

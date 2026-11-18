@@ -1,304 +1,688 @@
-$ cd code && time bash run_all.sh   # run of record, 30 October 2026, MacBook Air (Apple M-series), Python 3.9
 listed=74 missing=30 mismatched=0
-                                   0        1
-0                    launches subset  1240719
-1                 SOL-quoted (KI-03)  1016047
-2           decoder complete (KI-02)  1015473
-3           outcome resolved (KI-08)  1004717
-4           has f10 snapshot (KI-01)   951035
-5                  create lag <= 1 s   951035
-6  non-negative snapshot age (KI-11)   951035
-7     not rugged before the snapshot   935262
-8   not migrated before the snapshot   924742
+                                       0        1
+0                        launches subset  1240719
+1                     SOL-quoted (KI-03)  1016047
+2               decoder complete (KI-02)  1015473
+3               outcome resolved (KI-08)  1004717
+4               has f10 snapshot (KI-01)   951035
+5                      create lag <= 1 s   951035
+6      non-negative snapshot age (KI-11)   951035
+7         not rugged before the snapshot   935262
+8       not migrated before the snapshot   924742
+9  no rug within 60 s after the snapshot   473335
              n  creators    rug300   rug_any      grad  first_time
 mayhem                                                            
-0       638024    247665  0.574057  0.615875  0.012862    0.361306
-1       286718     13932  0.888280  0.889784  0.000164    0.026782
-15:27:52 E1|P1_random_mint|vendorrep prior n_tr=739794 n_te=184948 ap=0.6714 0.0s
-15:27:52 E1|P1_random_mint|vendorrep rule_mayhem n_tr=739794 n_te=184948 ap=0.7607 0.1s
-15:27:52 E1|P1_random_mint|vendorrep rule_dev n_tr=739794 n_te=184948 ap=0.8632 0.1s
-15:27:53 E1|P1_random_mint|vendorrep rule_insider n_tr=739794 n_te=184948 ap=0.8558 0.1s
-15:27:53 E1|P1_random_mint|vendorrep rule_rep n_tr=739794 n_te=184948 ap=0.8858 0.1s
-15:27:53 E1|P1_random_mint|vendorrep logreg n_tr=739794 n_te=184948 ap=0.9248 0.8s
-15:28:30 E1|P1_random_mint|vendorrep rf n_tr=739794 n_te=184948 ap=0.9550 36.6s
-15:28:39 E1|P1_random_mint|vendorrep hgb n_tr=739794 n_te=184948 ap=0.9543 8.6s
-15:28:49 E1|P1_random_mint|vendorrep lgbm n_tr=739794 n_te=184948 ap=0.9554 9.9s
-15:28:49 E1|P1_random_mint|causalrep prior n_tr=739794 n_te=184948 ap=0.6714 0.0s
-15:28:49 E1|P1_random_mint|causalrep rule_mayhem n_tr=739794 n_te=184948 ap=0.7607 0.1s
-15:28:49 E1|P1_random_mint|causalrep rule_dev n_tr=739794 n_te=184948 ap=0.8632 0.1s
-15:28:49 E1|P1_random_mint|causalrep rule_insider n_tr=739794 n_te=184948 ap=0.8558 0.1s
-15:28:49 E1|P1_random_mint|causalrep rule_rep n_tr=739794 n_te=184948 ap=0.8858 0.1s
-15:28:50 E1|P1_random_mint|causalrep logreg n_tr=739794 n_te=184948 ap=0.9311 0.9s
-15:29:28 E1|P1_random_mint|causalrep rf n_tr=739794 n_te=184948 ap=0.9564 37.6s
-15:29:37 E1|P1_random_mint|causalrep hgb n_tr=739794 n_te=184948 ap=0.9561 9.0s
-15:29:47 E1|P1_random_mint|causalrep lgbm n_tr=739794 n_te=184948 ap=0.9574 10.4s
-15:29:47 E1|P2_creator_grouped|vendorrep prior n_tr=745175 n_te=179567 ap=0.6873 0.0s
-15:29:47 E1|P2_creator_grouped|vendorrep rule_mayhem n_tr=745175 n_te=179567 ap=0.7681 0.1s
-15:29:47 E1|P2_creator_grouped|vendorrep rule_dev n_tr=745175 n_te=179567 ap=0.8766 0.1s
-15:29:47 E1|P2_creator_grouped|vendorrep rule_insider n_tr=745175 n_te=179567 ap=0.8612 0.1s
-15:29:47 E1|P2_creator_grouped|vendorrep rule_rep n_tr=745175 n_te=179567 ap=0.8946 0.1s
-15:29:48 E1|P2_creator_grouped|vendorrep logreg n_tr=745175 n_te=179567 ap=0.9347 0.7s
-15:30:27 E1|P2_creator_grouped|vendorrep rf n_tr=745175 n_te=179567 ap=0.9559 39.2s
-15:30:37 E1|P2_creator_grouped|vendorrep hgb n_tr=745175 n_te=179567 ap=0.9557 9.2s
-15:30:47 E1|P2_creator_grouped|vendorrep lgbm n_tr=745175 n_te=179567 ap=0.9563 10.2s
-15:30:47 E1|P2_creator_grouped|causalrep prior n_tr=745175 n_te=179567 ap=0.6873 0.0s
-15:30:47 E1|P2_creator_grouped|causalrep rule_mayhem n_tr=745175 n_te=179567 ap=0.7681 0.1s
-15:30:47 E1|P2_creator_grouped|causalrep rule_dev n_tr=745175 n_te=179567 ap=0.8766 0.1s
-15:30:47 E1|P2_creator_grouped|causalrep rule_insider n_tr=745175 n_te=179567 ap=0.8612 0.1s
-15:30:47 E1|P2_creator_grouped|causalrep rule_rep n_tr=745175 n_te=179567 ap=0.8946 0.1s
-15:30:48 E1|P2_creator_grouped|causalrep logreg n_tr=745175 n_te=179567 ap=0.9403 0.8s
-15:31:28 E1|P2_creator_grouped|causalrep rf n_tr=745175 n_te=179567 ap=0.9572 39.9s
-15:31:38 E1|P2_creator_grouped|causalrep hgb n_tr=745175 n_te=179567 ap=0.9577 9.7s
-15:31:48 E1|P2_creator_grouped|causalrep lgbm n_tr=745175 n_te=179567 ap=0.9582 10.6s
-15:31:48 E1|P3_time_forward|vendorrep|fold0 prior n_tr=540454 n_te=67823 ap=0.6733 0.0s
-15:31:49 E1|P3_time_forward|vendorrep|fold0 rule_mayhem n_tr=540454 n_te=67823 ap=0.7595 0.0s
-15:31:49 E1|P3_time_forward|vendorrep|fold0 rule_dev n_tr=540454 n_te=67823 ap=0.8664 0.1s
-15:31:49 E1|P3_time_forward|vendorrep|fold0 rule_insider n_tr=540454 n_te=67823 ap=0.8621 0.1s
-15:31:49 E1|P3_time_forward|vendorrep|fold0 rule_rep n_tr=540454 n_te=67823 ap=0.8860 0.1s
-15:31:49 E1|P3_time_forward|vendorrep|fold0 logreg n_tr=540454 n_te=67823 ap=0.9272 0.5s
-15:32:18 E1|P3_time_forward|vendorrep|fold0 rf n_tr=540454 n_te=67823 ap=0.9499 28.6s
-15:32:25 E1|P3_time_forward|vendorrep|fold0 hgb n_tr=540454 n_te=67823 ap=0.9504 7.6s
-15:32:35 E1|P3_time_forward|vendorrep|fold0 lgbm n_tr=540454 n_te=67823 ap=0.9508 9.2s
-15:32:35 E1|P4_time_unseen_creator|vendorrep|fold0 prior n_tr=540454 n_te=35286 ap=0.5745 0.0s
-15:32:35 E1|P4_time_unseen_creator|vendorrep|fold0 rule_mayhem n_tr=540454 n_te=35286 ap=0.6561 0.0s
-15:32:35 E1|P4_time_unseen_creator|vendorrep|fold0 rule_dev n_tr=540454 n_te=35286 ap=0.8178 0.1s
-15:32:35 E1|P4_time_unseen_creator|vendorrep|fold0 rule_insider n_tr=540454 n_te=35286 ap=0.8197 0.1s
-15:32:35 E1|P4_time_unseen_creator|vendorrep|fold0 rule_rep n_tr=540454 n_te=35286 ap=0.7442 0.0s
-15:32:35 E1|P4_time_unseen_creator|vendorrep|fold0 logreg n_tr=540454 n_te=35286 ap=0.8944 0.4s
-15:33:05 E1|P4_time_unseen_creator|vendorrep|fold0 rf n_tr=540454 n_te=35286 ap=0.9179 29.7s
-15:33:20 E1|P4_time_unseen_creator|vendorrep|fold0 hgb n_tr=540454 n_te=35286 ap=0.9187 15.4s
-15:33:30 E1|P4_time_unseen_creator|vendorrep|fold0 lgbm n_tr=540454 n_te=35286 ap=0.9205 10.0s
-15:33:31 E1|P3_time_forward|causalrep|fold0 prior n_tr=540454 n_te=67823 ap=0.6733 0.0s
-15:33:31 E1|P3_time_forward|causalrep|fold0 rule_mayhem n_tr=540454 n_te=67823 ap=0.7595 0.0s
-15:33:31 E1|P3_time_forward|causalrep|fold0 rule_dev n_tr=540454 n_te=67823 ap=0.8664 0.1s
-15:33:31 E1|P3_time_forward|causalrep|fold0 rule_insider n_tr=540454 n_te=67823 ap=0.8621 0.1s
-15:33:31 E1|P3_time_forward|causalrep|fold0 rule_rep n_tr=540454 n_te=67823 ap=0.8860 0.1s
-15:33:31 E1|P3_time_forward|causalrep|fold0 logreg n_tr=540454 n_te=67823 ap=0.9316 0.6s
-15:34:04 E1|P3_time_forward|causalrep|fold0 rf n_tr=540454 n_te=67823 ap=0.9510 32.7s
-15:34:13 E1|P3_time_forward|causalrep|fold0 hgb n_tr=540454 n_te=67823 ap=0.9520 9.2s
-15:34:24 E1|P3_time_forward|causalrep|fold0 lgbm n_tr=540454 n_te=67823 ap=0.9525 10.4s
-15:34:24 E1|P4_time_unseen_creator|causalrep|fold0 prior n_tr=540454 n_te=35286 ap=0.5745 0.0s
-15:34:24 E1|P4_time_unseen_creator|causalrep|fold0 rule_mayhem n_tr=540454 n_te=35286 ap=0.6561 0.0s
-15:34:24 E1|P4_time_unseen_creator|causalrep|fold0 rule_dev n_tr=540454 n_te=35286 ap=0.8178 0.1s
-15:34:24 E1|P4_time_unseen_creator|causalrep|fold0 rule_insider n_tr=540454 n_te=35286 ap=0.8197 0.1s
-15:34:24 E1|P4_time_unseen_creator|causalrep|fold0 rule_rep n_tr=540454 n_te=35286 ap=0.7442 0.1s
-15:34:25 E1|P4_time_unseen_creator|causalrep|fold0 logreg n_tr=540454 n_te=35286 ap=0.9010 0.6s
-15:35:04 E1|P4_time_unseen_creator|causalrep|fold0 rf n_tr=540454 n_te=35286 ap=0.9215 39.1s
-15:35:19 E1|P4_time_unseen_creator|causalrep|fold0 hgb n_tr=540454 n_te=35286 ap=0.9234 15.7s
-15:35:31 E1|P4_time_unseen_creator|causalrep|fold0 lgbm n_tr=540454 n_te=35286 ap=0.9249 11.8s
-15:35:31 E1|P3_time_forward|vendorrep|fold1 prior n_tr=540788 n_te=64605 ap=0.7119 0.0s
-15:35:31 E1|P3_time_forward|vendorrep|fold1 rule_mayhem n_tr=540788 n_te=64605 ap=0.7952 0.0s
-15:35:32 E1|P3_time_forward|vendorrep|fold1 rule_dev n_tr=540788 n_te=64605 ap=0.8675 0.1s
-15:35:32 E1|P3_time_forward|vendorrep|fold1 rule_insider n_tr=540788 n_te=64605 ap=0.8635 0.1s
-15:35:32 E1|P3_time_forward|vendorrep|fold1 rule_rep n_tr=540788 n_te=64605 ap=0.9015 0.1s
-15:35:32 E1|P3_time_forward|vendorrep|fold1 logreg n_tr=540788 n_te=64605 ap=0.9268 0.5s
-15:36:07 E1|P3_time_forward|vendorrep|fold1 rf n_tr=540788 n_te=64605 ap=0.9490 35.0s
-15:36:17 E1|P3_time_forward|vendorrep|fold1 hgb n_tr=540788 n_te=64605 ap=0.9479 10.3s
-15:36:28 E1|P3_time_forward|vendorrep|fold1 lgbm n_tr=540788 n_te=64605 ap=0.9487 10.4s
-15:36:28 E1|P4_time_unseen_creator|vendorrep|fold1 prior n_tr=540788 n_te=31480 ap=0.6274 0.0s
-15:36:28 E1|P4_time_unseen_creator|vendorrep|fold1 rule_mayhem n_tr=540788 n_te=31480 ap=0.6992 0.0s
-15:36:28 E1|P4_time_unseen_creator|vendorrep|fold1 rule_dev n_tr=540788 n_te=31480 ap=0.8154 0.1s
-15:36:28 E1|P4_time_unseen_creator|vendorrep|fold1 rule_insider n_tr=540788 n_te=31480 ap=0.8222 0.1s
-15:36:28 E1|P4_time_unseen_creator|vendorrep|fold1 rule_rep n_tr=540788 n_te=31480 ap=0.7749 0.1s
-15:36:28 E1|P4_time_unseen_creator|vendorrep|fold1 logreg n_tr=540788 n_te=31480 ap=0.8851 0.4s
-15:37:05 E1|P4_time_unseen_creator|vendorrep|fold1 rf n_tr=540788 n_te=31480 ap=0.9084 36.3s
-15:37:21 E1|P4_time_unseen_creator|vendorrep|fold1 hgb n_tr=540788 n_te=31480 ap=0.9040 16.0s
-15:37:33 E1|P4_time_unseen_creator|vendorrep|fold1 lgbm n_tr=540788 n_te=31480 ap=0.9047 12.5s
-15:37:33 E1|P3_time_forward|causalrep|fold1 prior n_tr=540788 n_te=64605 ap=0.7119 0.0s
-15:37:34 E1|P3_time_forward|causalrep|fold1 rule_mayhem n_tr=540788 n_te=64605 ap=0.7952 0.1s
-15:37:34 E1|P3_time_forward|causalrep|fold1 rule_dev n_tr=540788 n_te=64605 ap=0.8675 0.1s
-15:37:34 E1|P3_time_forward|causalrep|fold1 rule_insider n_tr=540788 n_te=64605 ap=0.8635 0.1s
-15:37:34 E1|P3_time_forward|causalrep|fold1 rule_rep n_tr=540788 n_te=64605 ap=0.9015 0.1s
-15:37:34 E1|P3_time_forward|causalrep|fold1 logreg n_tr=540788 n_te=64605 ap=0.9324 0.7s
-15:38:14 E1|P3_time_forward|causalrep|fold1 rf n_tr=540788 n_te=64605 ap=0.9511 39.0s
-15:38:28 E1|P3_time_forward|causalrep|fold1 hgb n_tr=540788 n_te=64605 ap=0.9522 14.3s
-15:38:40 E1|P3_time_forward|causalrep|fold1 lgbm n_tr=540788 n_te=64605 ap=0.9530 12.2s
-15:38:40 E1|P4_time_unseen_creator|causalrep|fold1 prior n_tr=540788 n_te=31480 ap=0.6274 0.0s
-15:38:40 E1|P4_time_unseen_creator|causalrep|fold1 rule_mayhem n_tr=540788 n_te=31480 ap=0.6992 0.0s
-15:38:40 E1|P4_time_unseen_creator|causalrep|fold1 rule_dev n_tr=540788 n_te=31480 ap=0.8154 0.1s
-15:38:40 E1|P4_time_unseen_creator|causalrep|fold1 rule_insider n_tr=540788 n_te=31480 ap=0.8222 0.1s
-15:38:40 E1|P4_time_unseen_creator|causalrep|fold1 rule_rep n_tr=540788 n_te=31480 ap=0.7749 0.1s
-15:38:41 E1|P4_time_unseen_creator|causalrep|fold1 logreg n_tr=540788 n_te=31480 ap=0.8970 0.6s
-15:39:18 E1|P4_time_unseen_creator|causalrep|fold1 rf n_tr=540788 n_te=31480 ap=0.9160 36.9s
-15:39:30 E1|P4_time_unseen_creator|causalrep|fold1 hgb n_tr=540788 n_te=31480 ap=0.9211 11.9s
-15:39:40 E1|P4_time_unseen_creator|causalrep|fold1 lgbm n_tr=540788 n_te=31480 ap=0.9215 10.6s
-15:39:41 E1|P3_time_forward|vendorrep|fold2 prior n_tr=533230 n_te=64097 ap=0.6974 0.0s
-15:39:41 E1|P3_time_forward|vendorrep|fold2 rule_mayhem n_tr=533230 n_te=64097 ap=0.7898 0.0s
-15:39:41 E1|P3_time_forward|vendorrep|fold2 rule_dev n_tr=533230 n_te=64097 ap=0.8610 0.1s
-15:39:41 E1|P3_time_forward|vendorrep|fold2 rule_insider n_tr=533230 n_te=64097 ap=0.8607 0.1s
-15:39:41 E1|P3_time_forward|vendorrep|fold2 rule_rep n_tr=533230 n_te=64097 ap=0.9040 0.1s
-15:39:41 E1|P3_time_forward|vendorrep|fold2 logreg n_tr=533230 n_te=64097 ap=0.9316 0.5s
-15:40:25 E1|P3_time_forward|vendorrep|fold2 rf n_tr=533230 n_te=64097 ap=0.9527 43.3s
-15:40:55 E1|P3_time_forward|vendorrep|fold2 hgb n_tr=533230 n_te=64097 ap=0.9541 30.1s
-15:41:10 E1|P3_time_forward|vendorrep|fold2 lgbm n_tr=533230 n_te=64097 ap=0.9538 15.4s
-15:41:10 E1|P4_time_unseen_creator|vendorrep|fold2 prior n_tr=533230 n_te=31189 ap=0.5899 0.0s
-15:41:10 E1|P4_time_unseen_creator|vendorrep|fold2 rule_mayhem n_tr=533230 n_te=31189 ap=0.6911 0.1s
-15:41:10 E1|P4_time_unseen_creator|vendorrep|fold2 rule_dev n_tr=533230 n_te=31189 ap=0.7948 0.1s
-15:41:10 E1|P4_time_unseen_creator|vendorrep|fold2 rule_insider n_tr=533230 n_te=31189 ap=0.8007 0.1s
-15:41:11 E1|P4_time_unseen_creator|vendorrep|fold2 rule_rep n_tr=533230 n_te=31189 ap=0.7865 0.1s
-15:41:11 E1|P4_time_unseen_creator|vendorrep|fold2 logreg n_tr=533230 n_te=31189 ap=0.8980 0.6s
-15:41:55 E1|P4_time_unseen_creator|vendorrep|fold2 rf n_tr=533230 n_te=31189 ap=0.9195 43.8s
-15:42:11 E1|P4_time_unseen_creator|vendorrep|fold2 hgb n_tr=533230 n_te=31189 ap=0.9211 16.1s
-15:42:23 E1|P4_time_unseen_creator|vendorrep|fold2 lgbm n_tr=533230 n_te=31189 ap=0.9197 11.7s
-15:42:23 E1|P3_time_forward|causalrep|fold2 prior n_tr=533230 n_te=64097 ap=0.6974 0.0s
-15:42:23 E1|P3_time_forward|causalrep|fold2 rule_mayhem n_tr=533230 n_te=64097 ap=0.7898 0.1s
-15:42:23 E1|P3_time_forward|causalrep|fold2 rule_dev n_tr=533230 n_te=64097 ap=0.8610 0.1s
-15:42:23 E1|P3_time_forward|causalrep|fold2 rule_insider n_tr=533230 n_te=64097 ap=0.8607 0.1s
-15:42:23 E1|P3_time_forward|causalrep|fold2 rule_rep n_tr=533230 n_te=64097 ap=0.9040 0.1s
-15:42:24 E1|P3_time_forward|causalrep|fold2 logreg n_tr=533230 n_te=64097 ap=0.9369 0.8s
-15:43:02 E1|P3_time_forward|causalrep|fold2 rf n_tr=533230 n_te=64097 ap=0.9544 38.3s
-15:43:15 E1|P3_time_forward|causalrep|fold2 hgb n_tr=533230 n_te=64097 ap=0.9554 12.8s
-15:43:26 E1|P3_time_forward|causalrep|fold2 lgbm n_tr=533230 n_te=64097 ap=0.9551 11.1s
-15:43:26 E1|P4_time_unseen_creator|causalrep|fold2 prior n_tr=533230 n_te=31189 ap=0.5899 0.0s
-15:43:26 E1|P4_time_unseen_creator|causalrep|fold2 rule_mayhem n_tr=533230 n_te=31189 ap=0.6911 0.0s
-15:43:27 E1|P4_time_unseen_creator|causalrep|fold2 rule_dev n_tr=533230 n_te=31189 ap=0.7948 0.1s
-15:43:27 E1|P4_time_unseen_creator|causalrep|fold2 rule_insider n_tr=533230 n_te=31189 ap=0.8007 0.1s
-15:43:27 E1|P4_time_unseen_creator|causalrep|fold2 rule_rep n_tr=533230 n_te=31189 ap=0.7865 0.1s
-15:43:27 E1|P4_time_unseen_creator|causalrep|fold2 logreg n_tr=533230 n_te=31189 ap=0.9081 0.6s
-15:44:09 E1|P4_time_unseen_creator|causalrep|fold2 rf n_tr=533230 n_te=31189 ap=0.9241 42.0s
-15:44:32 E1|P4_time_unseen_creator|causalrep|fold2 hgb n_tr=533230 n_te=31189 ap=0.9260 23.1s
-15:44:47 E1|P4_time_unseen_creator|causalrep|fold2 lgbm n_tr=533230 n_te=31189 ap=0.9271 14.6s
-15:44:47 E1|P3_time_forward|vendorrep|fold3 prior n_tr=521071 n_te=63419 ap=0.6886 0.0s
-15:44:47 E1|P3_time_forward|vendorrep|fold3 rule_mayhem n_tr=521071 n_te=63419 ap=0.7674 0.1s
-15:44:47 E1|P3_time_forward|vendorrep|fold3 rule_dev n_tr=521071 n_te=63419 ap=0.8686 0.1s
-15:44:47 E1|P3_time_forward|vendorrep|fold3 rule_insider n_tr=521071 n_te=63419 ap=0.8669 0.1s
-15:44:48 E1|P3_time_forward|vendorrep|fold3 rule_rep n_tr=521071 n_te=63419 ap=0.9027 0.1s
-15:44:48 E1|P3_time_forward|vendorrep|fold3 logreg n_tr=521071 n_te=63419 ap=0.9265 0.6s
-15:45:31 E1|P3_time_forward|vendorrep|fold3 rf n_tr=521071 n_te=63419 ap=0.9514 43.3s
-15:45:45 E1|P3_time_forward|vendorrep|fold3 hgb n_tr=521071 n_te=63419 ap=0.9519 13.5s
-15:45:57 E1|P3_time_forward|vendorrep|fold3 lgbm n_tr=521071 n_te=63419 ap=0.9525 12.3s
-15:45:57 E1|P4_time_unseen_creator|vendorrep|fold3 prior n_tr=521071 n_te=29243 ap=0.5842 0.0s
-15:45:57 E1|P4_time_unseen_creator|vendorrep|fold3 rule_mayhem n_tr=521071 n_te=29243 ap=0.6543 0.0s
-15:45:58 E1|P4_time_unseen_creator|vendorrep|fold3 rule_dev n_tr=521071 n_te=29243 ap=0.7990 0.1s
-15:45:58 E1|P4_time_unseen_creator|vendorrep|fold3 rule_insider n_tr=521071 n_te=29243 ap=0.8037 0.1s
-15:45:58 E1|P4_time_unseen_creator|vendorrep|fold3 rule_rep n_tr=521071 n_te=29243 ap=0.7597 0.1s
-15:45:58 E1|P4_time_unseen_creator|vendorrep|fold3 logreg n_tr=521071 n_te=29243 ap=0.8736 0.5s
-	15:46:43 E1|P4_time_unseen_creator|vendorrep|fold3 rf n_tr=521071 n_te=29243 ap=0.9052 44.9s
-15:47:16 E1|P4_time_unseen_creator|vendorrep|fold3 hgb n_tr=521071 n_te=29243 ap=0.9075 33.0s
-15:47:32 E1|P4_time_unseen_creator|vendorrep|fold3 lgbm n_tr=521071 n_te=29243 ap=0.9086 16.2s
-15:47:32 E1|P3_time_forward|causalrep|fold3 prior n_tr=521071 n_te=63419 ap=0.6886 0.0s
-15:47:32 E1|P3_time_forward|causalrep|fold3 rule_mayhem n_tr=521071 n_te=63419 ap=0.7674 0.0s
-15:47:33 E1|P3_time_forward|causalrep|fold3 rule_dev n_tr=521071 n_te=63419 ap=0.8686 0.2s
-15:47:33 E1|P3_time_forward|causalrep|fold3 rule_insider n_tr=521071 n_te=63419 ap=0.8669 0.1s
-15:47:33 E1|P3_time_forward|causalrep|fold3 rule_rep n_tr=521071 n_te=63419 ap=0.9027 0.1s
-15:47:34 E1|P3_time_forward|causalrep|fold3 logreg n_tr=521071 n_te=63419 ap=0.9320 0.8s
-15:48:09 E1|P3_time_forward|causalrep|fold3 rf n_tr=521071 n_te=63419 ap=0.9532 35.1s
-15:48:20 E1|P3_time_forward|causalrep|fold3 hgb n_tr=521071 n_te=63419 ap=0.9533 10.8s
-15:48:31 E1|P3_time_forward|causalrep|fold3 lgbm n_tr=521071 n_te=63419 ap=0.9538 11.5s
-15:48:31 E1|P4_time_unseen_creator|causalrep|fold3 prior n_tr=521071 n_te=29243 ap=0.5842 0.0s
-15:48:31 E1|P4_time_unseen_creator|causalrep|fold3 rule_mayhem n_tr=521071 n_te=29243 ap=0.6543 0.0s
-15:48:31 E1|P4_time_unseen_creator|causalrep|fold3 rule_dev n_tr=521071 n_te=29243 ap=0.7990 0.1s
-15:48:31 E1|P4_time_unseen_creator|causalrep|fold3 rule_insider n_tr=521071 n_te=29243 ap=0.8037 0.1s
-15:48:32 E1|P4_time_unseen_creator|causalrep|fold3 rule_rep n_tr=521071 n_te=29243 ap=0.7597 0.1s
-15:48:32 E1|P4_time_unseen_creator|causalrep|fold3 logreg n_tr=521071 n_te=29243 ap=0.8824 0.7s
-15:49:07 E1|P4_time_unseen_creator|causalrep|fold3 rf n_tr=521071 n_te=29243 ap=0.9099 34.5s
-15:49:19 E1|P4_time_unseen_creator|causalrep|fold3 hgb n_tr=521071 n_te=29243 ap=0.9123 12.6s
-15:49:30 E1|P4_time_unseen_creator|causalrep|fold3 lgbm n_tr=521071 n_te=29243 ap=0.9136 10.7s
-15:49:30 E1|P3_time_forward|vendorrep|fold4 prior n_tr=493241 n_te=61840 ap=0.6855 0.0s
-15:49:30 E1|P3_time_forward|vendorrep|fold4 rule_mayhem n_tr=493241 n_te=61840 ap=0.7627 0.0s
-15:49:30 E1|P3_time_forward|vendorrep|fold4 rule_dev n_tr=493241 n_te=61840 ap=0.8666 0.1s
-15:49:30 E1|P3_time_forward|vendorrep|fold4 rule_insider n_tr=493241 n_te=61840 ap=0.8656 0.1s
-15:49:30 E1|P3_time_forward|vendorrep|fold4 rule_rep n_tr=493241 n_te=61840 ap=0.8993 0.1s
-15:49:31 E1|P3_time_forward|vendorrep|fold4 logreg n_tr=493241 n_te=61840 ap=0.9259 0.4s
-15:50:01 E1|P3_time_forward|vendorrep|fold4 rf n_tr=493241 n_te=61840 ap=0.9494 30.5s
-15:50:11 E1|P3_time_forward|vendorrep|fold4 hgb n_tr=493241 n_te=61840 ap=0.9511 9.2s
-15:50:21 E1|P3_time_forward|vendorrep|fold4 lgbm n_tr=493241 n_te=61840 ap=0.9513 10.7s
-15:50:21 E1|P4_time_unseen_creator|vendorrep|fold4 prior n_tr=493241 n_te=30030 ap=0.5877 0.0s
-15:50:21 E1|P4_time_unseen_creator|vendorrep|fold4 rule_mayhem n_tr=493241 n_te=30030 ap=0.6624 0.0s
-15:50:21 E1|P4_time_unseen_creator|vendorrep|fold4 rule_dev n_tr=493241 n_te=30030 ap=0.8093 0.1s
-15:50:21 E1|P4_time_unseen_creator|vendorrep|fold4 rule_insider n_tr=493241 n_te=30030 ap=0.8152 0.1s
-15:50:22 E1|P4_time_unseen_creator|vendorrep|fold4 rule_rep n_tr=493241 n_te=30030 ap=0.7687 0.1s
-15:50:22 E1|P4_time_unseen_creator|vendorrep|fold4 logreg n_tr=493241 n_te=30030 ap=0.8841 0.5s
-15:50:53 E1|P4_time_unseen_creator|vendorrep|fold4 rf n_tr=493241 n_te=30030 ap=0.9153 30.6s
-15:51:02 E1|P4_time_unseen_creator|vendorrep|fold4 hgb n_tr=493241 n_te=30030 ap=0.9173 9.4s
-15:51:12 E1|P4_time_unseen_creator|vendorrep|fold4 lgbm n_tr=493241 n_te=30030 ap=0.9180 10.4s
-15:51:13 E1|P3_time_forward|causalrep|fold4 prior n_tr=493241 n_te=61840 ap=0.6855 0.0s
-15:51:13 E1|P3_time_forward|causalrep|fold4 rule_mayhem n_tr=493241 n_te=61840 ap=0.7627 0.0s
-15:51:13 E1|P3_time_forward|causalrep|fold4 rule_dev n_tr=493241 n_te=61840 ap=0.8666 0.1s
-15:51:13 E1|P3_time_forward|causalrep|fold4 rule_insider n_tr=493241 n_te=61840 ap=0.8656 0.1s
-15:51:13 E1|P3_time_forward|causalrep|fold4 rule_rep n_tr=493241 n_te=61840 ap=0.8993 0.1s
-15:51:13 E1|P3_time_forward|causalrep|fold4 logreg n_tr=493241 n_te=61840 ap=0.9307 0.5s
-15:51:48 E1|P3_time_forward|causalrep|fold4 rf n_tr=493241 n_te=61840 ap=0.9507 35.0s
-15:52:00 E1|P3_time_forward|causalrep|fold4 hgb n_tr=493241 n_te=61840 ap=0.9524 11.6s
-15:52:10 E1|P3_time_forward|causalrep|fold4 lgbm n_tr=493241 n_te=61840 ap=0.9529 10.6s
-15:52:11 E1|P4_time_unseen_creator|causalrep|fold4 prior n_tr=493241 n_te=30030 ap=0.5877 0.0s
-15:52:11 E1|P4_time_unseen_creator|causalrep|fold4 rule_mayhem n_tr=493241 n_te=30030 ap=0.6624 0.0s
-15:52:11 E1|P4_time_unseen_creator|causalrep|fold4 rule_dev n_tr=493241 n_te=30030 ap=0.8093 0.1s
-15:52:11 E1|P4_time_unseen_creator|causalrep|fold4 rule_insider n_tr=493241 n_te=30030 ap=0.8152 0.1s
-15:52:11 E1|P4_time_unseen_creator|causalrep|fold4 rule_rep n_tr=493241 n_te=30030 ap=0.7687 0.1s
-15:52:11 E1|P4_time_unseen_creator|causalrep|fold4 logreg n_tr=493241 n_te=30030 ap=0.8924 0.5s
-15:52:44 E1|P4_time_unseen_creator|causalrep|fold4 rf n_tr=493241 n_te=30030 ap=0.9190 32.2s
-15:52:53 E1|P4_time_unseen_creator|causalrep|fold4 hgb n_tr=493241 n_te=30030 ap=0.9215 9.1s
-15:53:03 E1|P4_time_unseen_creator|causalrep|fold4 lgbm n_tr=493241 n_te=30030 ap=0.9226 10.6s
-15:53:17 E2|holdout|rep=none lgbm n_tr=493241 n_te=61840 ap=0.9255 13.8s
-15:53:18 E2|holdout|rep=none logreg n_tr=493241 n_te=61840 ap=0.9030 0.8s
-15:53:34 E2|holdout|rep=causal lgbm n_tr=493241 n_te=61840 ap=0.9529 15.5s
-15:53:35 E2|holdout|rep=causal logreg n_tr=493241 n_te=61840 ap=0.9307 1.1s
-15:53:50 E2|holdout|rep=vendor lgbm n_tr=493241 n_te=61840 ap=0.9513 15.1s
-15:53:51 E2|holdout|rep=vendor logreg n_tr=493241 n_te=61840 ap=0.9259 0.8s
-15:54:02 E2|holdout|rep=oracle lgbm n_tr=493241 n_te=61840 ap=0.9537 11.1s
-15:54:03 E2|holdout|rep=oracle logreg n_tr=493241 n_te=61840 ap=0.9311 0.6s
-15:54:03 E2b|holdout|embargo=600s rule_rep_e600 n_tr=493241 n_te=61840 ap=0.9094 0.1s
-15:54:13 E2b|holdout|embargo=600s lgbm n_tr=493241 n_te=61840 ap=0.9540 10.2s
-15:54:13 E2b|holdout|embargo=86400s rule_rep_e86400 n_tr=493241 n_te=61840 ap=0.8706 0.1s
-15:54:24 E2b|holdout|embargo=86400s lgbm n_tr=493241 n_te=61840 ap=0.9519 10.7s
-15:54:24 E3|holdout|causalrep prior n_tr=493241 n_te=61840 ap=0.6855 0.0s
-15:54:24 E3|holdout|causalrep rule_mayhem n_tr=493241 n_te=61840 ap=0.7627 0.1s
-15:54:24 E3|holdout|causalrep rule_dev n_tr=493241 n_te=61840 ap=0.8666 0.1s
-15:54:24 E3|holdout|causalrep rule_insider n_tr=493241 n_te=61840 ap=0.8656 0.1s
-15:54:24 E3|holdout|causalrep rule_rep n_tr=493241 n_te=61840 ap=0.8993 0.1s
-15:54:25 E3|holdout|causalrep logreg n_tr=493241 n_te=61840 ap=0.9307 0.6s
-15:55:00 E3|holdout|causalrep rf n_tr=493241 n_te=61840 ap=0.9507 35.4s
-15:55:28 E3|holdout|causalrep hgb n_tr=493241 n_te=61840 ap=0.9524 27.6s
-15:55:44 E3|holdout|causalrep lgbm n_tr=493241 n_te=61840 ap=0.9529 16.3s
-16:01:02 E4|holdout|no_reputation lgbm n_tr=493241 n_te=61840 ap=0.9255 10.6s
-16:01:15 E4|holdout|no_holder_structure lgbm n_tr=493241 n_te=61840 ap=0.9517 10.9s
-16:01:29 E4|holdout|no_flow lgbm n_tr=493241 n_te=61840 ap=0.9520 11.0s
-16:01:42 E4|holdout|no_mayhem_flag lgbm n_tr=493241 n_te=61840 ap=0.9528 11.3s
-16:01:44 E5|label=y_rug60 prior n_tr=493241 n_te=61840 ap=0.4904 0.0s
-16:01:44 E5|label=y_rug60 rule_rep n_tr=493241 n_te=61840 ap=0.7465 0.1s
-16:01:58 E5|label=y_rug60 lgbm n_tr=493241 n_te=61840 ap=0.8451 13.6s
-16:01:58 E5|label=y_rug3600 prior n_tr=493241 n_te=61840 ap=0.7092 0.0s
-16:01:58 E5|label=y_rug3600 rule_rep n_tr=493241 n_te=61840 ap=0.9175 0.1s
-16:02:09 E5|label=y_rug3600 lgbm n_tr=493241 n_te=61840 ap=0.9699 11.3s
-16:02:09 E5|label=y_rug_any prior n_tr=493241 n_te=61840 ap=0.7133 0.0s
-16:02:10 E5|label=y_rug_any rule_rep n_tr=493241 n_te=61840 ap=0.9188 0.1s
-16:02:21 E5|label=y_rug_any lgbm n_tr=493241 n_te=61840 ap=0.9726 11.3s
-16:02:21 E5|label=y_rug_drain prior n_tr=493241 n_te=61840 ap=0.2617 0.0s
-16:02:21 E5|label=y_rug_drain rule_rep n_tr=493241 n_te=61840 ap=0.3848 0.1s
-16:02:32 E5|label=y_rug_drain lgbm n_tr=493241 n_te=61840 ap=0.9330 10.7s
-16:02:32 E5|label=y_rug_devdump prior n_tr=493241 n_te=61840 ap=0.4516 0.0s
-16:02:32 E5|label=y_rug_devdump rule_rep n_tr=493241 n_te=61840 ap=0.6453 0.1s
-16:02:43 E5|label=y_rug_devdump lgbm n_tr=493241 n_te=61840 ap=0.9033 10.6s
-16:02:43 E5|label=y_collapse90 prior n_tr=493241 n_te=61840 ap=0.4644 0.0s
-16:02:43 E5|label=y_collapse90 rule_rep n_tr=493241 n_te=61840 ap=0.5896 0.1s
-16:02:55 E5|label=y_collapse90 lgbm n_tr=493241 n_te=61840 ap=0.9417 12.2s
-16:02:55 E5|regime=train_classic_test_classic prior n_tr=340497 n_te=41706 ap=0.5955 0.0s
-16:03:07 E5|regime=train_classic_test_classic lgbm n_tr=340497 n_te=41706 ap=0.9385 11.6s
-16:03:07 E5|regime=train_classic_test_mayhem prior n_tr=340497 n_te=20134 ap=0.8720 0.0s
-16:03:18 E5|regime=train_classic_test_mayhem lgbm n_tr=340497 n_te=20134 ap=0.9472 11.1s
-16:03:18 E5|regime=train_mayhem_test_mayhem prior n_tr=152744 n_te=20134 ap=0.8720 0.0s
-16:03:27 E5|regime=train_mayhem_test_mayhem lgbm n_tr=152744 n_te=20134 ap=0.9653 8.9s
-16:03:40 E5|filter=exclude_silence3s lgbm n_tr=491409 n_te=61574 ap=0.9535 13.3s
-16:03:53 E5|filter=exclude_multihop_seam lgbm n_tr=452372 n_te=61840 ap=0.9527 13.1s
-16:03:53 E5|subgroup=first_time_creators prior n_tr=493241 n_te=12823 ap=0.5884 0.0s
-16:03:53 E5|subgroup=first_time_creators rule_rep n_tr=493241 n_te=12823 ap=0.5884 0.1s
-16:04:06 E5|subgroup=first_time_creators lgbm n_tr=493241 n_te=12823 ap=0.8682 13.1s
-16:04:07 E5|subgroup=repeat_creators prior n_tr=493241 n_te=49017 ap=0.7109 0.0s
-16:04:07 E5|subgroup=repeat_creators rule_rep n_tr=493241 n_te=49017 ap=0.9317 0.1s
-16:04:20 E5|subgroup=repeat_creators lgbm n_tr=493241 n_te=49017 ap=0.9625 12.9s
+0       385212    161073  0.294513  0.363776  0.018086    0.368566
+1        88123     11672  0.636508  0.641399  0.000397    0.061823
+01:22:20 E1|P1_random_mint|vendorrep prior n_tr=378668 n_te=94667 ap=0.3579 0.0s
+01:22:20 E1|P1_random_mint|vendorrep rule_mayhem n_tr=378668 n_te=94667 ap=0.4513 0.0s
+01:22:20 E1|P1_random_mint|vendorrep rule_dev n_tr=378668 n_te=94667 ap=0.5872 0.1s
+01:22:20 E1|P1_random_mint|vendorrep rule_insider n_tr=378668 n_te=94667 ap=0.5639 0.1s
+01:22:20 E1|P1_random_mint|vendorrep rule_rep n_tr=378668 n_te=94667 ap=0.6108 0.1s
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  ret = a @ b
+  ret = a @ b
+  ret = a @ b
+01:22:21 E1|P1_random_mint|vendorrep logreg n_tr=378668 n_te=94667 ap=0.6773 0.5s
+01:22:38 E1|P1_random_mint|vendorrep rf n_tr=378668 n_te=94667 ap=0.7661 17.0s
+01:22:47 E1|P1_random_mint|vendorrep hgb n_tr=378668 n_te=94667 ap=0.7650 9.3s
+01:22:56 E1|P1_random_mint|vendorrep lgbm n_tr=378668 n_te=94667 ap=0.7677 8.7s
+01:22:56 E1|P1_random_mint|causalrep prior n_tr=378668 n_te=94667 ap=0.3579 0.0s
+01:22:56 E1|P1_random_mint|causalrep rule_mayhem n_tr=378668 n_te=94667 ap=0.4513 0.0s
+01:22:56 E1|P1_random_mint|causalrep rule_dev n_tr=378668 n_te=94667 ap=0.5872 0.1s
+01:22:56 E1|P1_random_mint|causalrep rule_insider n_tr=378668 n_te=94667 ap=0.5639 0.1s
+01:22:56 E1|P1_random_mint|causalrep rule_rep n_tr=378668 n_te=94667 ap=0.6108 0.1s
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  ret = a @ b
+  ret = a @ b
+  ret = a @ b
+01:22:57 E1|P1_random_mint|causalrep logreg n_tr=378668 n_te=94667 ap=0.6938 0.5s
+01:23:15 E1|P1_random_mint|causalrep rf n_tr=378668 n_te=94667 ap=0.7699 18.2s
+01:23:23 E1|P1_random_mint|causalrep hgb n_tr=378668 n_te=94667 ap=0.7694 8.2s
+01:23:32 E1|P1_random_mint|causalrep lgbm n_tr=378668 n_te=94667 ap=0.7733 8.6s
+01:23:32 E1|P2_creator_grouped|vendorrep prior n_tr=377857 n_te=95478 ap=0.3714 0.0s
+01:23:32 E1|P2_creator_grouped|vendorrep rule_mayhem n_tr=377857 n_te=95478 ap=0.4627 0.0s
+01:23:32 E1|P2_creator_grouped|vendorrep rule_dev n_tr=377857 n_te=95478 ap=0.5943 0.1s
+01:23:32 E1|P2_creator_grouped|vendorrep rule_insider n_tr=377857 n_te=95478 ap=0.5697 0.1s
+01:23:32 E1|P2_creator_grouped|vendorrep rule_rep n_tr=377857 n_te=95478 ap=0.6330 0.1s
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  ret = a @ b
+  ret = a @ b
+  ret = a @ b
+01:23:32 E1|P2_creator_grouped|vendorrep logreg n_tr=377857 n_te=95478 ap=0.6842 0.4s
+01:23:49 E1|P2_creator_grouped|vendorrep rf n_tr=377857 n_te=95478 ap=0.7494 16.8s
+01:23:57 E1|P2_creator_grouped|vendorrep hgb n_tr=377857 n_te=95478 ap=0.7441 7.7s
+01:24:07 E1|P2_creator_grouped|vendorrep lgbm n_tr=377857 n_te=95478 ap=0.7450 10.1s
+01:24:07 E1|P2_creator_grouped|causalrep prior n_tr=377857 n_te=95478 ap=0.3714 0.0s
+01:24:07 E1|P2_creator_grouped|causalrep rule_mayhem n_tr=377857 n_te=95478 ap=0.4627 0.0s
+01:24:07 E1|P2_creator_grouped|causalrep rule_dev n_tr=377857 n_te=95478 ap=0.5943 0.1s
+01:24:07 E1|P2_creator_grouped|causalrep rule_insider n_tr=377857 n_te=95478 ap=0.5697 0.1s
+01:24:07 E1|P2_creator_grouped|causalrep rule_rep n_tr=377857 n_te=95478 ap=0.6330 0.1s
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  ret = a @ b
+  ret = a @ b
+  ret = a @ b
+01:24:08 E1|P2_creator_grouped|causalrep logreg n_tr=377857 n_te=95478 ap=0.7012 0.6s
+01:24:30 E1|P2_creator_grouped|causalrep rf n_tr=377857 n_te=95478 ap=0.7555 22.3s
+01:24:48 E1|P2_creator_grouped|causalrep hgb n_tr=377857 n_te=95478 ap=0.7529 18.0s
+01:25:00 E1|P2_creator_grouped|causalrep lgbm n_tr=377857 n_te=95478 ap=0.7530 11.6s
+01:25:00 E1|P3_time_forward|vendorrep|fold0 prior n_tr=281731 n_te=34558 ap=0.3589 0.0s
+01:25:00 E1|P3_time_forward|vendorrep|fold0 rule_mayhem n_tr=281731 n_te=34558 ap=0.4410 0.0s
+01:25:00 E1|P3_time_forward|vendorrep|fold0 rule_dev n_tr=281731 n_te=34558 ap=0.6013 0.0s
+01:25:00 E1|P3_time_forward|vendorrep|fold0 rule_insider n_tr=281731 n_te=34558 ap=0.5831 0.0s
+01:25:00 E1|P3_time_forward|vendorrep|fold0 rule_rep n_tr=281731 n_te=34558 ap=0.5997 0.0s
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  ret = a @ b
+  ret = a @ b
+  ret = a @ b
+01:25:00 E1|P3_time_forward|vendorrep|fold0 logreg n_tr=281731 n_te=34558 ap=0.6849 0.3s
+01:25:19 E1|P3_time_forward|vendorrep|fold0 rf n_tr=281731 n_te=34558 ap=0.7397 18.7s
+01:25:32 E1|P3_time_forward|vendorrep|fold0 hgb n_tr=281731 n_te=34558 ap=0.7380 13.5s
+01:25:45 E1|P3_time_forward|vendorrep|fold0 lgbm n_tr=281731 n_te=34558 ap=0.7388 12.3s
+01:25:45 E1|P4_time_unseen_creator|vendorrep|fold0 prior n_tr=281731 n_te=21552 ap=0.2955 0.0s
+01:25:45 E1|P4_time_unseen_creator|vendorrep|fold0 rule_mayhem n_tr=281731 n_te=21552 ap=0.3512 0.0s
+01:25:45 E1|P4_time_unseen_creator|vendorrep|fold0 rule_dev n_tr=281731 n_te=21552 ap=0.5714 0.0s
+01:25:45 E1|P4_time_unseen_creator|vendorrep|fold0 rule_insider n_tr=281731 n_te=21552 ap=0.5474 0.0s
+01:25:45 E1|P4_time_unseen_creator|vendorrep|fold0 rule_rep n_tr=281731 n_te=21552 ap=0.4478 0.0s
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  ret = a @ b
+  ret = a @ b
+  ret = a @ b
+01:25:45 E1|P4_time_unseen_creator|vendorrep|fold0 logreg n_tr=281731 n_te=21552 ap=0.6300 0.3s
+01:26:04 E1|P4_time_unseen_creator|vendorrep|fold0 rf n_tr=281731 n_te=21552 ap=0.6857 18.5s
+01:26:18 E1|P4_time_unseen_creator|vendorrep|fold0 hgb n_tr=281731 n_te=21552 ap=0.6811 13.9s
+01:26:28 E1|P4_time_unseen_creator|vendorrep|fold0 lgbm n_tr=281731 n_te=21552 ap=0.6819 10.0s
+01:26:28 E1|P3_time_forward|causalrep|fold0 prior n_tr=281731 n_te=34558 ap=0.3589 0.0s
+01:26:28 E1|P3_time_forward|causalrep|fold0 rule_mayhem n_tr=281731 n_te=34558 ap=0.4410 0.0s
+01:26:28 E1|P3_time_forward|causalrep|fold0 rule_dev n_tr=281731 n_te=34558 ap=0.6013 0.0s
+01:26:28 E1|P3_time_forward|causalrep|fold0 rule_insider n_tr=281731 n_te=34558 ap=0.5831 0.0s
+01:26:28 E1|P3_time_forward|causalrep|fold0 rule_rep n_tr=281731 n_te=34558 ap=0.5997 0.0s
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  ret = a @ b
+  ret = a @ b
+  ret = a @ b
+01:26:28 E1|P3_time_forward|causalrep|fold0 logreg n_tr=281731 n_te=34558 ap=0.6970 0.3s
+01:26:44 E1|P3_time_forward|causalrep|fold0 rf n_tr=281731 n_te=34558 ap=0.7424 16.0s
+01:26:59 E1|P3_time_forward|causalrep|fold0 hgb n_tr=281731 n_te=34558 ap=0.7439 14.9s
+01:27:08 E1|P3_time_forward|causalrep|fold0 lgbm n_tr=281731 n_te=34558 ap=0.7421 9.3s
+01:27:09 E1|P4_time_unseen_creator|causalrep|fold0 prior n_tr=281731 n_te=21552 ap=0.2955 0.0s
+01:27:09 E1|P4_time_unseen_creator|causalrep|fold0 rule_mayhem n_tr=281731 n_te=21552 ap=0.3512 0.0s
+01:27:09 E1|P4_time_unseen_creator|causalrep|fold0 rule_dev n_tr=281731 n_te=21552 ap=0.5714 0.0s
+01:27:09 E1|P4_time_unseen_creator|causalrep|fold0 rule_insider n_tr=281731 n_te=21552 ap=0.5474 0.0s
+01:27:09 E1|P4_time_unseen_creator|causalrep|fold0 rule_rep n_tr=281731 n_te=21552 ap=0.4478 0.0s
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  ret = a @ b
+  ret = a @ b
+  ret = a @ b
+01:27:09 E1|P4_time_unseen_creator|causalrep|fold0 logreg n_tr=281731 n_te=21552 ap=0.6435 0.3s
+01:27:24 E1|P4_time_unseen_creator|causalrep|fold0 rf n_tr=281731 n_te=21552 ap=0.6917 14.9s
+01:27:34 E1|P4_time_unseen_creator|causalrep|fold0 hgb n_tr=281731 n_te=21552 ap=0.6907 10.0s
+01:27:43 E1|P4_time_unseen_creator|causalrep|fold0 lgbm n_tr=281731 n_te=21552 ap=0.6903 9.5s
+01:27:44 E1|P3_time_forward|vendorrep|fold1 prior n_tr=282370 n_te=31264 ap=0.4047 0.0s
+01:27:44 E1|P3_time_forward|vendorrep|fold1 rule_mayhem n_tr=282370 n_te=31264 ap=0.4974 0.0s
+01:27:44 E1|P3_time_forward|vendorrep|fold1 rule_dev n_tr=282370 n_te=31264 ap=0.6051 0.0s
+01:27:44 E1|P3_time_forward|vendorrep|fold1 rule_insider n_tr=282370 n_te=31264 ap=0.5945 0.0s
+01:27:44 E1|P3_time_forward|vendorrep|fold1 rule_rep n_tr=282370 n_te=31264 ap=0.6277 0.0s
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  ret = a @ b
+  ret = a @ b
+  ret = a @ b
+01:27:44 E1|P3_time_forward|vendorrep|fold1 logreg n_tr=282370 n_te=31264 ap=0.6974 0.3s
+01:27:58 E1|P3_time_forward|vendorrep|fold1 rf n_tr=282370 n_te=31264 ap=0.7370 14.2s
+01:28:07 E1|P3_time_forward|vendorrep|fold1 hgb n_tr=282370 n_te=31264 ap=0.7332 8.9s
+01:28:17 E1|P3_time_forward|vendorrep|fold1 lgbm n_tr=282370 n_te=31264 ap=0.7335 10.4s
+01:28:18 E1|P4_time_unseen_creator|vendorrep|fold1 prior n_tr=282370 n_te=18529 ap=0.3570 0.0s
+01:28:18 E1|P4_time_unseen_creator|vendorrep|fold1 rule_mayhem n_tr=282370 n_te=18529 ap=0.4102 0.0s
+01:28:18 E1|P4_time_unseen_creator|vendorrep|fold1 rule_dev n_tr=282370 n_te=18529 ap=0.5829 0.0s
+01:28:18 E1|P4_time_unseen_creator|vendorrep|fold1 rule_insider n_tr=282370 n_te=18529 ap=0.5522 0.0s
+01:28:18 E1|P4_time_unseen_creator|vendorrep|fold1 rule_rep n_tr=282370 n_te=18529 ap=0.4935 0.0s
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  ret = a @ b
+  ret = a @ b
+  ret = a @ b
+01:28:18 E1|P4_time_unseen_creator|vendorrep|fold1 logreg n_tr=282370 n_te=18529 ap=0.6441 0.4s
+01:28:33 E1|P4_time_unseen_creator|vendorrep|fold1 rf n_tr=282370 n_te=18529 ap=0.6778 15.3s
+01:28:41 E1|P4_time_unseen_creator|vendorrep|fold1 hgb n_tr=282370 n_te=18529 ap=0.6743 7.9s
+01:28:50 E1|P4_time_unseen_creator|vendorrep|fold1 lgbm n_tr=282370 n_te=18529 ap=0.6734 9.0s
+01:28:50 E1|P3_time_forward|causalrep|fold1 prior n_tr=282370 n_te=31264 ap=0.4047 0.0s
+01:28:50 E1|P3_time_forward|causalrep|fold1 rule_mayhem n_tr=282370 n_te=31264 ap=0.4974 0.0s
+01:28:50 E1|P3_time_forward|causalrep|fold1 rule_dev n_tr=282370 n_te=31264 ap=0.6051 0.0s
+01:28:50 E1|P3_time_forward|causalrep|fold1 rule_insider n_tr=282370 n_te=31264 ap=0.5945 0.0s
+01:28:50 E1|P3_time_forward|causalrep|fold1 rule_rep n_tr=282370 n_te=31264 ap=0.6277 0.0s
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  ret = a @ b
+  ret = a @ b
+  ret = a @ b
+01:28:51 E1|P3_time_forward|causalrep|fold1 logreg n_tr=282370 n_te=31264 ap=0.7120 0.4s
+01:29:04 E1|P3_time_forward|causalrep|fold1 rf n_tr=282370 n_te=31264 ap=0.7394 13.4s
+01:29:10 E1|P3_time_forward|causalrep|fold1 hgb n_tr=282370 n_te=31264 ap=0.7421 5.5s
+01:29:19 E1|P3_time_forward|causalrep|fold1 lgbm n_tr=282370 n_te=31264 ap=0.7422 8.8s
+01:29:19 E1|P4_time_unseen_creator|causalrep|fold1 prior n_tr=282370 n_te=18529 ap=0.3570 0.0s
+01:29:19 E1|P4_time_unseen_creator|causalrep|fold1 rule_mayhem n_tr=282370 n_te=18529 ap=0.4102 0.0s
+01:29:19 E1|P4_time_unseen_creator|causalrep|fold1 rule_dev n_tr=282370 n_te=18529 ap=0.5829 0.0s
+01:29:19 E1|P4_time_unseen_creator|causalrep|fold1 rule_insider n_tr=282370 n_te=18529 ap=0.5522 0.0s
+01:29:19 E1|P4_time_unseen_creator|causalrep|fold1 rule_rep n_tr=282370 n_te=18529 ap=0.4935 0.0s
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  ret = a @ b
+  ret = a @ b
+  ret = a @ b
+01:29:19 E1|P4_time_unseen_creator|causalrep|fold1 logreg n_tr=282370 n_te=18529 ap=0.6681 0.4s
+01:29:33 E1|P4_time_unseen_creator|causalrep|fold1 rf n_tr=282370 n_te=18529 ap=0.6934 13.9s
+01:29:39 E1|P4_time_unseen_creator|causalrep|fold1 hgb n_tr=282370 n_te=18529 ap=0.6997 5.7s
+01:29:48 E1|P4_time_unseen_creator|causalrep|fold1 lgbm n_tr=282370 n_te=18529 ap=0.7032 9.0s
+01:29:48 E1|P3_time_forward|vendorrep|fold2 prior n_tr=279275 n_te=31980 ap=0.3935 0.0s
+01:29:48 E1|P3_time_forward|vendorrep|fold2 rule_mayhem n_tr=279275 n_te=31980 ap=0.5099 0.0s
+01:29:48 E1|P3_time_forward|vendorrep|fold2 rule_dev n_tr=279275 n_te=31980 ap=0.5910 0.0s
+01:29:48 E1|P3_time_forward|vendorrep|fold2 rule_insider n_tr=279275 n_te=31980 ap=0.5909 0.0s
+01:29:48 E1|P3_time_forward|vendorrep|fold2 rule_rep n_tr=279275 n_te=31980 ap=0.6550 0.0s
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  ret = a @ b
+  ret = a @ b
+  ret = a @ b
+01:29:48 E1|P3_time_forward|vendorrep|fold2 logreg n_tr=279275 n_te=31980 ap=0.7086 0.3s
+01:30:03 E1|P3_time_forward|vendorrep|fold2 rf n_tr=279275 n_te=31980 ap=0.7654 14.3s
+01:30:12 E1|P3_time_forward|vendorrep|fold2 hgb n_tr=279275 n_te=31980 ap=0.7647 9.0s
+01:30:21 E1|P3_time_forward|vendorrep|fold2 lgbm n_tr=279275 n_te=31980 ap=0.7629 9.5s
+01:30:21 E1|P4_time_unseen_creator|vendorrep|fold2 prior n_tr=279275 n_te=19208 ap=0.3240 0.0s
+01:30:21 E1|P4_time_unseen_creator|vendorrep|fold2 rule_mayhem n_tr=279275 n_te=19208 ap=0.3903 0.0s
+01:30:21 E1|P4_time_unseen_creator|vendorrep|fold2 rule_dev n_tr=279275 n_te=19208 ap=0.5387 0.0s
+01:30:21 E1|P4_time_unseen_creator|vendorrep|fold2 rule_insider n_tr=279275 n_te=19208 ap=0.5262 0.0s
+01:30:21 E1|P4_time_unseen_creator|vendorrep|fold2 rule_rep n_tr=279275 n_te=19208 ap=0.5098 0.0s
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  ret = a @ b
+  ret = a @ b
+  ret = a @ b
+01:30:22 E1|P4_time_unseen_creator|vendorrep|fold2 logreg n_tr=279275 n_te=19208 ap=0.6390 0.3s
+01:30:36 E1|P4_time_unseen_creator|vendorrep|fold2 rf n_tr=279275 n_te=19208 ap=0.6825 14.3s
+01:30:50 E1|P4_time_unseen_creator|vendorrep|fold2 hgb n_tr=279275 n_te=19208 ap=0.6779 14.3s
+01:31:01 E1|P4_time_unseen_creator|vendorrep|fold2 lgbm n_tr=279275 n_te=19208 ap=0.6792 10.2s
+01:31:01 E1|P3_time_forward|causalrep|fold2 prior n_tr=279275 n_te=31980 ap=0.3935 0.0s
+01:31:01 E1|P3_time_forward|causalrep|fold2 rule_mayhem n_tr=279275 n_te=31980 ap=0.5099 0.0s
+01:31:01 E1|P3_time_forward|causalrep|fold2 rule_dev n_tr=279275 n_te=31980 ap=0.5910 0.0s
+01:31:01 E1|P3_time_forward|causalrep|fold2 rule_insider n_tr=279275 n_te=31980 ap=0.5909 0.1s
+01:31:01 E1|P3_time_forward|causalrep|fold2 rule_rep n_tr=279275 n_te=31980 ap=0.6550 0.0s
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  ret = a @ b
+  ret = a @ b
+  ret = a @ b
+01:31:01 E1|P3_time_forward|causalrep|fold2 logreg n_tr=279275 n_te=31980 ap=0.7249 0.4s
+01:31:17 E1|P3_time_forward|causalrep|fold2 rf n_tr=279275 n_te=31980 ap=0.7658 15.3s
+01:31:26 E1|P3_time_forward|causalrep|fold2 hgb n_tr=279275 n_te=31980 ap=0.7681 9.2s
+01:31:36 E1|P3_time_forward|causalrep|fold2 lgbm n_tr=279275 n_te=31980 ap=0.7647 9.9s
+01:31:36 E1|P4_time_unseen_creator|causalrep|fold2 prior n_tr=279275 n_te=19208 ap=0.3240 0.0s
+01:31:36 E1|P4_time_unseen_creator|causalrep|fold2 rule_mayhem n_tr=279275 n_te=19208 ap=0.3903 0.0s
+01:31:36 E1|P4_time_unseen_creator|causalrep|fold2 rule_dev n_tr=279275 n_te=19208 ap=0.5387 0.0s
+01:31:36 E1|P4_time_unseen_creator|causalrep|fold2 rule_insider n_tr=279275 n_te=19208 ap=0.5262 0.1s
+01:31:36 E1|P4_time_unseen_creator|causalrep|fold2 rule_rep n_tr=279275 n_te=19208 ap=0.5098 0.0s
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  ret = a @ b
+  ret = a @ b
+  ret = a @ b
+01:31:36 E1|P4_time_unseen_creator|causalrep|fold2 logreg n_tr=279275 n_te=19208 ap=0.6625 0.4s
+01:31:52 E1|P4_time_unseen_creator|causalrep|fold2 rf n_tr=279275 n_te=19208 ap=0.6901 15.7s
+01:32:01 E1|P4_time_unseen_creator|causalrep|fold2 hgb n_tr=279275 n_te=19208 ap=0.6928 9.0s
+01:32:12 E1|P4_time_unseen_creator|causalrep|fold2 lgbm n_tr=279275 n_te=19208 ap=0.6963 10.8s
+01:32:12 E1|P3_time_forward|vendorrep|fold3 prior n_tr=272778 n_te=31763 ap=0.3782 0.0s
+01:32:12 E1|P3_time_forward|vendorrep|fold3 rule_mayhem n_tr=272778 n_te=31763 ap=0.4736 0.0s
+01:32:12 E1|P3_time_forward|vendorrep|fold3 rule_dev n_tr=272778 n_te=31763 ap=0.6021 0.0s
+01:32:12 E1|P3_time_forward|vendorrep|fold3 rule_insider n_tr=272778 n_te=31763 ap=0.5993 0.0s
+01:32:12 E1|P3_time_forward|vendorrep|fold3 rule_rep n_tr=272778 n_te=31763 ap=0.6296 0.0s
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  ret = a @ b
+  ret = a @ b
+  ret = a @ b
+01:32:12 E1|P3_time_forward|vendorrep|fold3 logreg n_tr=272778 n_te=31763 ap=0.6911 0.3s
+01:32:28 E1|P3_time_forward|vendorrep|fold3 rf n_tr=272778 n_te=31763 ap=0.7549 15.4s
+01:32:37 E1|P3_time_forward|vendorrep|fold3 hgb n_tr=272778 n_te=31763 ap=0.7523 9.5s
+01:32:48 E1|P3_time_forward|vendorrep|fold3 lgbm n_tr=272778 n_te=31763 ap=0.7486 10.5s
+01:32:48 E1|P4_time_unseen_creator|vendorrep|fold3 prior n_tr=272778 n_te=18009 ap=0.3166 0.0s
+01:32:48 E1|P4_time_unseen_creator|vendorrep|fold3 rule_mayhem n_tr=272778 n_te=18009 ap=0.3728 0.0s
+01:32:48 E1|P4_time_unseen_creator|vendorrep|fold3 rule_dev n_tr=272778 n_te=18009 ap=0.5510 0.0s
+01:32:48 E1|P4_time_unseen_creator|vendorrep|fold3 rule_insider n_tr=272778 n_te=18009 ap=0.5406 0.0s
+01:32:48 E1|P4_time_unseen_creator|vendorrep|fold3 rule_rep n_tr=272778 n_te=18009 ap=0.4711 0.0s
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  ret = a @ b
+  ret = a @ b
+  ret = a @ b
+01:32:48 E1|P4_time_unseen_creator|vendorrep|fold3 logreg n_tr=272778 n_te=18009 ap=0.6112 0.3s
+01:33:04 E1|P4_time_unseen_creator|vendorrep|fold3 rf n_tr=272778 n_te=18009 ap=0.6510 15.4s
+01:33:13 E1|P4_time_unseen_creator|vendorrep|fold3 hgb n_tr=272778 n_te=18009 ap=0.6541 9.7s
+01:33:24 E1|P4_time_unseen_creator|vendorrep|fold3 lgbm n_tr=272778 n_te=18009 ap=0.6538 10.3s
+01:33:24 E1|P3_time_forward|causalrep|fold3 prior n_tr=272778 n_te=31763 ap=0.3782 0.0s
+01:33:24 E1|P3_time_forward|causalrep|fold3 rule_mayhem n_tr=272778 n_te=31763 ap=0.4736 0.0s
+01:33:24 E1|P3_time_forward|causalrep|fold3 rule_dev n_tr=272778 n_te=31763 ap=0.6021 0.0s
+01:33:24 E1|P3_time_forward|causalrep|fold3 rule_insider n_tr=272778 n_te=31763 ap=0.5993 0.0s
+01:33:24 E1|P3_time_forward|causalrep|fold3 rule_rep n_tr=272778 n_te=31763 ap=0.6296 0.0s
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  ret = a @ b
+  ret = a @ b
+  ret = a @ b
+01:33:24 E1|P3_time_forward|causalrep|fold3 logreg n_tr=272778 n_te=31763 ap=0.7065 0.4s
+01:33:39 E1|P3_time_forward|causalrep|fold3 rf n_tr=272778 n_te=31763 ap=0.7574 15.1s
+01:33:53 E1|P3_time_forward|causalrep|fold3 hgb n_tr=272778 n_te=31763 ap=0.7568 13.6s
+01:34:03 E1|P3_time_forward|causalrep|fold3 lgbm n_tr=272778 n_te=31763 ap=0.7541 10.3s
+01:34:03 E1|P4_time_unseen_creator|causalrep|fold3 prior n_tr=272778 n_te=18009 ap=0.3166 0.0s
+01:34:03 E1|P4_time_unseen_creator|causalrep|fold3 rule_mayhem n_tr=272778 n_te=18009 ap=0.3728 0.0s
+01:34:03 E1|P4_time_unseen_creator|causalrep|fold3 rule_dev n_tr=272778 n_te=18009 ap=0.5510 0.0s
+01:34:03 E1|P4_time_unseen_creator|causalrep|fold3 rule_insider n_tr=272778 n_te=18009 ap=0.5406 0.0s
+01:34:03 E1|P4_time_unseen_creator|causalrep|fold3 rule_rep n_tr=272778 n_te=18009 ap=0.4711 0.0s
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  ret = a @ b
+  ret = a @ b
+  ret = a @ b
+01:34:04 E1|P4_time_unseen_creator|causalrep|fold3 logreg n_tr=272778 n_te=18009 ap=0.6262 0.5s
+01:34:19 E1|P4_time_unseen_creator|causalrep|fold3 rf n_tr=272778 n_te=18009 ap=0.6599 15.6s
+01:34:30 E1|P4_time_unseen_creator|causalrep|fold3 hgb n_tr=272778 n_te=18009 ap=0.6667 10.3s
+01:34:40 E1|P4_time_unseen_creator|causalrep|fold3 lgbm n_tr=272778 n_te=18009 ap=0.6667 9.7s
+01:34:40 E1|P3_time_forward|vendorrep|fold4 prior n_tr=255637 n_te=31142 ap=0.3755 0.0s
+01:34:40 E1|P3_time_forward|vendorrep|fold4 rule_mayhem n_tr=255637 n_te=31142 ap=0.4703 0.0s
+01:34:40 E1|P3_time_forward|vendorrep|fold4 rule_dev n_tr=255637 n_te=31142 ap=0.6033 0.0s
+01:34:40 E1|P3_time_forward|vendorrep|fold4 rule_insider n_tr=255637 n_te=31142 ap=0.5924 0.0s
+01:34:40 E1|P3_time_forward|vendorrep|fold4 rule_rep n_tr=255637 n_te=31142 ap=0.6326 0.0s
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  ret = a @ b
+  ret = a @ b
+  ret = a @ b
+01:34:40 E1|P3_time_forward|vendorrep|fold4 logreg n_tr=255637 n_te=31142 ap=0.6837 0.3s
+01:34:54 E1|P3_time_forward|vendorrep|fold4 rf n_tr=255637 n_te=31142 ap=0.7471 13.7s
+01:35:06 E1|P3_time_forward|vendorrep|fold4 hgb n_tr=255637 n_te=31142 ap=0.7473 11.9s
+01:35:16 E1|P3_time_forward|vendorrep|fold4 lgbm n_tr=255637 n_te=31142 ap=0.7457 10.1s
+01:35:16 E1|P4_time_unseen_creator|vendorrep|fold4 prior n_tr=255637 n_te=18337 ap=0.3178 0.0s
+01:35:16 E1|P4_time_unseen_creator|vendorrep|fold4 rule_mayhem n_tr=255637 n_te=18337 ap=0.3844 0.0s
+01:35:16 E1|P4_time_unseen_creator|vendorrep|fold4 rule_dev n_tr=255637 n_te=18337 ap=0.5790 0.0s
+01:35:16 E1|P4_time_unseen_creator|vendorrep|fold4 rule_insider n_tr=255637 n_te=18337 ap=0.5486 0.0s
+01:35:16 E1|P4_time_unseen_creator|vendorrep|fold4 rule_rep n_tr=255637 n_te=18337 ap=0.4861 0.0s
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  ret = a @ b
+  ret = a @ b
+  ret = a @ b
+01:35:16 E1|P4_time_unseen_creator|vendorrep|fold4 logreg n_tr=255637 n_te=18337 ap=0.6335 0.3s
+01:35:30 E1|P4_time_unseen_creator|vendorrep|fold4 rf n_tr=255637 n_te=18337 ap=0.6836 13.5s
+01:35:39 E1|P4_time_unseen_creator|vendorrep|fold4 hgb n_tr=255637 n_te=18337 ap=0.6868 8.8s
+01:35:49 E1|P4_time_unseen_creator|vendorrep|fold4 lgbm n_tr=255637 n_te=18337 ap=0.6849 9.8s
+01:35:49 E1|P3_time_forward|causalrep|fold4 prior n_tr=255637 n_te=31142 ap=0.3755 0.0s
+01:35:49 E1|P3_time_forward|causalrep|fold4 rule_mayhem n_tr=255637 n_te=31142 ap=0.4703 0.0s
+01:35:49 E1|P3_time_forward|causalrep|fold4 rule_dev n_tr=255637 n_te=31142 ap=0.6033 0.0s
+01:35:49 E1|P3_time_forward|causalrep|fold4 rule_insider n_tr=255637 n_te=31142 ap=0.5924 0.0s
+01:35:49 E1|P3_time_forward|causalrep|fold4 rule_rep n_tr=255637 n_te=31142 ap=0.6326 0.0s
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  ret = a @ b
+  ret = a @ b
+  ret = a @ b
+01:35:49 E1|P3_time_forward|causalrep|fold4 logreg n_tr=255637 n_te=31142 ap=0.6971 0.4s
+01:36:03 E1|P3_time_forward|causalrep|fold4 rf n_tr=255637 n_te=31142 ap=0.7538 14.0s
+01:36:17 E1|P3_time_forward|causalrep|fold4 hgb n_tr=255637 n_te=31142 ap=0.7548 13.8s
+01:36:27 E1|P3_time_forward|causalrep|fold4 lgbm n_tr=255637 n_te=31142 ap=0.7545 9.7s
+01:36:27 E1|P4_time_unseen_creator|causalrep|fold4 prior n_tr=255637 n_te=18337 ap=0.3178 0.0s
+01:36:27 E1|P4_time_unseen_creator|causalrep|fold4 rule_mayhem n_tr=255637 n_te=18337 ap=0.3844 0.0s
+01:36:27 E1|P4_time_unseen_creator|causalrep|fold4 rule_dev n_tr=255637 n_te=18337 ap=0.5790 0.0s
+01:36:27 E1|P4_time_unseen_creator|causalrep|fold4 rule_insider n_tr=255637 n_te=18337 ap=0.5486 0.0s
+01:36:27 E1|P4_time_unseen_creator|causalrep|fold4 rule_rep n_tr=255637 n_te=18337 ap=0.4861 0.0s
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  ret = a @ b
+  ret = a @ b
+  ret = a @ b
+01:36:27 E1|P4_time_unseen_creator|causalrep|fold4 logreg n_tr=255637 n_te=18337 ap=0.6487 0.4s
+01:36:41 E1|P4_time_unseen_creator|causalrep|fold4 rf n_tr=255637 n_te=18337 ap=0.6919 13.7s
+01:36:52 E1|P4_time_unseen_creator|causalrep|fold4 hgb n_tr=255637 n_te=18337 ap=0.6951 11.5s
+01:37:02 E1|P4_time_unseen_creator|causalrep|fold4 lgbm n_tr=255637 n_te=18337 ap=0.6950 9.8s
+01:37:12 E2|holdout|rep=none lgbm n_tr=255637 n_te=31142 ap=0.6713 10.1s
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  ret = a @ b
+  ret = a @ b
+  ret = a @ b
+01:37:13 E2|holdout|rep=none logreg n_tr=255637 n_te=31142 ap=0.6469 0.3s
+01:37:23 E2|holdout|rep=causal lgbm n_tr=255637 n_te=31142 ap=0.7545 9.9s
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  ret = a @ b
+  ret = a @ b
+  ret = a @ b
+01:37:23 E2|holdout|rep=causal logreg n_tr=255637 n_te=31142 ap=0.6971 0.5s
+01:37:33 E2|holdout|rep=vendor lgbm n_tr=255637 n_te=31142 ap=0.7457 10.0s
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  ret = a @ b
+  ret = a @ b
+  ret = a @ b
+01:37:34 E2|holdout|rep=vendor logreg n_tr=255637 n_te=31142 ap=0.6837 0.4s
+01:37:45 E2|holdout|rep=oracle lgbm n_tr=255637 n_te=31142 ap=0.7563 11.0s
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  ret = a @ b
+  ret = a @ b
+  ret = a @ b
+01:37:45 E2|holdout|rep=oracle logreg n_tr=255637 n_te=31142 ap=0.6991 0.6s
+01:37:45 E2b|holdout|embargo=600s rule_rep_e600 n_tr=255637 n_te=31142 ap=0.6484 0.0s
+01:37:55 E2b|holdout|embargo=600s lgbm n_tr=255637 n_te=31142 ap=0.7568 9.3s
+01:37:55 E2b|holdout|embargo=86400s rule_rep_e86400 n_tr=255637 n_te=31142 ap=0.5951 0.0s
+01:38:04 E2b|holdout|embargo=86400s lgbm n_tr=255637 n_te=31142 ap=0.7497 9.4s
+01:38:04 E3|holdout|causalrep prior n_tr=255637 n_te=31142 ap=0.3755 0.0s
+01:38:04 E3|holdout|causalrep rule_mayhem n_tr=255637 n_te=31142 ap=0.4703 0.0s
+01:38:04 E3|holdout|causalrep rule_dev n_tr=255637 n_te=31142 ap=0.6033 0.0s
+01:38:04 E3|holdout|causalrep rule_insider n_tr=255637 n_te=31142 ap=0.5924 0.0s
+01:38:04 E3|holdout|causalrep rule_rep n_tr=255637 n_te=31142 ap=0.6326 0.0s
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  ret = a @ b
+  ret = a @ b
+  ret = a @ b
+01:38:05 E3|holdout|causalrep logreg n_tr=255637 n_te=31142 ap=0.6971 0.4s
+01:38:18 E3|holdout|causalrep rf n_tr=255637 n_te=31142 ap=0.7538 12.9s
+01:38:27 E3|holdout|causalrep hgb n_tr=255637 n_te=31142 ap=0.7548 9.0s
+01:38:37 E3|holdout|causalrep lgbm n_tr=255637 n_te=31142 ap=0.7545 10.3s
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  ret = a @ b
+  ret = a @ b
+  ret = a @ b
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  ret = a @ b
+  ret = a @ b
+  ret = a @ b
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+01:40:58 E4|holdout|no_reputation lgbm n_tr=255637 n_te=31142 ap=0.6713 9.4s
+01:41:09 E4|holdout|no_holder_structure lgbm n_tr=255637 n_te=31142 ap=0.7522 9.5s
+01:41:22 E4|holdout|no_flow lgbm n_tr=255637 n_te=31142 ap=0.7516 11.7s
+01:41:38 E4|holdout|no_mayhem_flag lgbm n_tr=255637 n_te=31142 ap=0.7545 14.2s
+01:41:40 E5|label=y_rug120 prior n_tr=255637 n_te=31142 ap=0.1996 0.0s
+01:41:40 E5|label=y_rug120 rule_rep n_tr=255637 n_te=31142 ap=0.3834 0.0s
+01:42:01 E5|label=y_rug120 lgbm n_tr=255637 n_te=31142 ap=0.4952 20.7s
+01:42:01 E5|label=y_rug3600 prior n_tr=255637 n_te=31142 ap=0.4225 0.0s
+01:42:01 E5|label=y_rug3600 rule_rep n_tr=255637 n_te=31142 ap=0.6955 0.1s
+01:42:17 E5|label=y_rug3600 lgbm n_tr=255637 n_te=31142 ap=0.8492 15.6s
+01:42:17 E5|label=y_rug_any prior n_tr=255637 n_te=31142 ap=0.4307 0.0s
+01:42:17 E5|label=y_rug_any rule_rep n_tr=255637 n_te=31142 ap=0.7004 0.0s
+01:42:29 E5|label=y_rug_any lgbm n_tr=255637 n_te=31142 ap=0.8641 12.1s
+01:42:29 E5|label=y_rug_drain prior n_tr=255637 n_te=31142 ap=0.1600 0.0s
+01:42:29 E5|label=y_rug_drain rule_rep n_tr=255637 n_te=31142 ap=0.2840 0.1s
+01:42:43 E5|label=y_rug_drain lgbm n_tr=255637 n_te=31142 ap=0.8435 14.5s
+01:42:43 E5|label=y_rug_devdump prior n_tr=255637 n_te=31142 ap=0.2707 0.0s
+01:42:44 E5|label=y_rug_devdump rule_rep n_tr=255637 n_te=31142 ap=0.4894 0.1s
+01:42:57 E5|label=y_rug_devdump lgbm n_tr=255637 n_te=31142 ap=0.6995 13.6s
+01:42:57 E5|label=y_collapse90 prior n_tr=255637 n_te=31142 ap=0.3177 0.0s
+01:42:57 E5|label=y_collapse90 rule_rep n_tr=255637 n_te=31142 ap=0.4544 0.1s
+01:43:11 E5|label=y_collapse90 lgbm n_tr=255637 n_te=31142 ap=0.8894 13.5s
+01:43:11 E5|regime=train_classic_test_classic prior n_tr=208923 n_te=24192 ap=0.3027 0.0s
+01:43:24 E5|regime=train_classic_test_classic lgbm n_tr=208923 n_te=24192 ap=0.6941 12.9s
+01:43:24 E5|regime=train_classic_test_mayhem prior n_tr=208923 n_te=6950 ap=0.6291 0.0s
+01:43:35 E5|regime=train_classic_test_mayhem lgbm n_tr=208923 n_te=6950 ap=0.7213 10.8s
+01:43:35 E5|regime=train_mayhem_test_mayhem prior n_tr=46714 n_te=6950 ap=0.6291 0.0s
+01:43:43 E5|regime=train_mayhem_test_mayhem lgbm n_tr=46714 n_te=6950 ap=0.7986 8.2s
+01:43:54 E5|filter=exclude_silence3s lgbm n_tr=254670 n_te=31000 ap=0.7569 11.1s
+01:44:04 E5|filter=exclude_multihop_seam lgbm n_tr=234684 n_te=31142 ap=0.7527 9.7s
+01:44:04 E5|subgroup=first_time_creators prior n_tr=255637 n_te=8011 ap=0.3412 0.0s
+01:44:04 E5|subgroup=first_time_creators rule_rep n_tr=255637 n_te=8011 ap=0.3412 0.0s
+01:44:14 E5|subgroup=first_time_creators lgbm n_tr=255637 n_te=8011 ap=0.6336 9.9s
+01:44:14 E5|subgroup=repeat_creators prior n_tr=255637 n_te=23131 ap=0.3874 0.0s
+01:44:14 E5|subgroup=repeat_creators rule_rep n_tr=255637 n_te=23131 ap=0.6925 0.0s
+01:44:23 E5|subgroup=repeat_creators lgbm n_tr=255637 n_te=23131 ap=0.7793 9.7s
 done; results in ~/Projeler/pumpfun-rugpull-makale/results
 figures -> ~/Projeler/pumpfun-rugpull-makale/figures | tables -> ~/Projeler/pumpfun-rugpull-makale/results
-                         comparison      n   ap_diff     ci_lo     ci_hi  boot_p
-0  lgbm rep=vendor minus rep=causal  61840 -0.001660 -0.002725 -0.000610   0.001
-1  lgbm rep=oracle minus rep=causal  61840  0.000751  0.000270  0.001293   0.002
-2    lgbm rep=none minus rep=causal  61840 -0.027465 -0.032890 -0.022038   0.000
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  grad[:n_features] = X.T @ grad_pointwise + l2_reg_strength * weights
+  ret = a @ b
+  ret = a @ b
+  ret = a @ b
+                         comparison      n  ...     ci_hi  boot_p
+0  lgbm rep=vendor minus rep=causal  31142  ... -0.004592   0.000
+1  lgbm rep=oracle minus rep=causal  31142  ...  0.004324   0.143
+2    lgbm rep=none minus rep=causal  31142  ... -0.067061   0.000
+
+[3 rows x 6 columns]
     ref         other      n  prevalence    ap_ref  ap_other   ap_diff     ci_lo     ci_hi  boot_p   auc_ref  auc_other       delong_p  bh_q
-0  lgbm         prior  30030    0.587679  0.922597  0.587679  0.334918  0.307603  0.363378     0.0  0.911152   0.500000   0.000000e+00   0.0
-1  lgbm   rule_mayhem  30030    0.587679  0.922597  0.662440  0.260157  0.226728  0.295575     0.0  0.911152   0.611007   0.000000e+00   0.0
-2  lgbm      rule_dev  30030    0.587679  0.922597  0.809332  0.113265  0.101276  0.124028     0.0  0.911152   0.811845   0.000000e+00   0.0
-3  lgbm  rule_insider  30030    0.587679  0.922597  0.815167  0.107430  0.097091  0.117117     0.0  0.911152   0.810116   0.000000e+00   0.0
-4  lgbm      rule_rep  30030    0.587679  0.922597  0.768656  0.153941  0.129007  0.182335     0.0  0.911152   0.736387   0.000000e+00   0.0
-5  lgbm        logreg  30030    0.587679  0.922597  0.892371  0.030226  0.023607  0.038187     0.0  0.911152   0.883608  2.046788e-132   0.0
-124 entries -> ~/Projeler/pumpfun-rugpull-makale/results/key_numbers.md
-bash run_all.sh  12735,66s user 2209,69s system 597% cpu 41:41,57 total
+0  lgbm         prior  18337    0.317773  0.694979  0.317773  0.377206  0.344760  0.408063     0.0  0.868146   0.500000   0.000000e+00   0.0
+1  lgbm   rule_mayhem  18337    0.317773  0.694979  0.384372  0.310608  0.280561  0.339255     0.0  0.868146   0.587995   0.000000e+00   0.0
+2  lgbm      rule_dev  18337    0.317773  0.694979  0.579006  0.115973  0.091365  0.141632     0.0  0.868146   0.816681   3.122576e-86   0.0
+3  lgbm  rule_insider  18337    0.317773  0.694979  0.548553  0.146426  0.124708  0.169134     0.0  0.868146   0.787268  3.927923e-159   0.0
+4  lgbm      rule_rep  18337    0.317773  0.694979  0.486081  0.208899  0.183291  0.236369     0.0  0.868146   0.687161   0.000000e+00   0.0
+5  lgbm        logreg  18337    0.317773  0.694979  0.648677  0.046302  0.033748  0.057586     0.0  0.868146   0.840871   4.101413e-61   0.0
+125 entries -> ~/Projeler/pumpfun-rugpull-makale/results/key_numbers.md
+ref hold-out, all launches 31142 {'prevalence': 0.37553785884015156, 'pr_auc': 0.7545228850079388, 'pr_lo': 0.7250856335428904, 'pr_hi': 0.7804177624762302, 'roc_auc': 0.8655617828687889, 'roc_lo': 0.8508401464713038, 'roc_hi': 0.8789091846600509}
+A lead time of hold-out rugs (s): q10,q25,median,q75,q90 11695 {'q10': np.float64(66.22160004806518), 'q25': np.float64(79.75750007629395), 'median': np.float64(112.81799983978271), 'q75': np.float64(172.22499994754793), 'q90': np.float64(232.58600005912785), 'share_lt10': 0.0, 'share_lt30': 0.0, 'share_lt60': 0.0}
+A rugs leaving >= 120 s after the snapshot vs non-rugs 24815 {'prevalence': 0.2163207737255692, 'pr_auc': 0.5455719450858639, 'pr_lo': 0.5092097512113624, 'pr_hi': 0.5800166576810293, 'roc_auc': 0.850358557942306, 'roc_lo': 0.8341456069358207, 'roc_hi': 0.8648567096252913}
+A rugs leaving >= 180 s after the snapshot vs non-rugs 22115 {'prevalence': 0.12064209812344563, 'pr_auc': 0.35715750895780735, 'pr_lo': 0.31890847858641036, 'pr_hi': 0.39922485847566025, 'roc_auc': 0.8451487027093745, 'roc_lo': 0.8260006264398817, 'roc_hi': 0.8629108543873795}
+B peak reserves >= 1 SOL 10686 {'prevalence': 0.5774845592363841, 'pr_auc': 0.7618082010085733, 'pr_lo': 0.7354374210421343, 'pr_hi': 0.7847513426461464, 'roc_auc': 0.7248055375651445, 'roc_lo': 0.707738912236651, 'roc_hi': 0.7406048089965014}
+B peak reserves >= 5 SOL 5404 {'prevalence': 0.6134344929681718, 'pr_auc': 0.7390009683031893, 'pr_lo': 0.7165754168553988, 'pr_hi': 0.7599064778530975, 'roc_auc': 0.6624953520090512, 'roc_lo': 0.6450453072197793, 'roc_hi': 0.6801381023392569}
+B PR-AUC weighted by peak reserves (SOL) 31142 {'weighted_pr_auc': 0.6302710858124769, 'weighted_prevalence': 0.49354626571119825}
+C threshold from validation days, training-prevalence share 31142 {'flag_rate_val': 0.34588939918889156, 'flag_rate_test': 0.34554620769378974, 'precision': np.float64(0.710807545767122), 'recall': np.float64(0.6540401881145789), 'mcc': 0.5030694449784054, 'false_safe_rate': 0.19851822776115008, 'graduated_flagged': 0.44584382871536526, 'n_graduated': 397}
+C threshold from validation days, budget 10% 31142 {'flag_rate_val': 0.1, 'flag_rate_test': 0.084130755892364, 'precision': np.float64(0.8347328244274809), 'recall': np.float64(0.1870029927319367), 'mcc': 0.2873941052643245, 'false_safe_rate': 0.3333567071032887, 'graduated_flagged': 0.04785894206549118, 'n_graduated': 397}
+C threshold from validation days, budget 5% 31142 {'flag_rate_val': 0.05, 'flag_rate_test': 0.03744139746965513, 'precision': np.float64(0.8816466552315609), 'recall': np.float64(0.08790081231295425), 'mcc': 0.20612297447838246, 'false_safe_rate': 0.35585134774486255, 'graduated_flagged': 0.010075566750629723, 'n_graduated': 397}
+C threshold from validation days, budget 1% 31142 {'flag_rate_val': 0.01, 'flag_rate_test': 0.00783507802967054, 'precision': np.float64(0.9385245901639344), 'recall': np.float64(0.019581017528858487), 'mcc': 0.10331133374509459, 'false_safe_rate': 0.3710919800634345, 'graduated_flagged': 0.0, 'n_graduated': 397}
+D P4 hold-out, lgbm 18337 {'nonrug_prevalence': 0.6822271909254513, 'nonrug_pr_auc': 0.9428510131303109, 'nonrug_lo': 0.9294626699882375, 'nonrug_hi': 0.9537423995322453, 'false_safe@1%': 0.0, 'false_safe@5%': 0.0, 'false_safe@10%': 0.0}
+D P4 hold-out, rule_insider 18337 {'nonrug_prevalence': 0.6822271909254513, 'nonrug_pr_auc': 0.9013336434585574, 'nonrug_lo': 0.8792038219926771, 'nonrug_hi': 0.9196555675322319, 'false_safe@1%': 0.0030832476875641834, 'false_safe@5%': 0.0030832476875642945, 'false_safe@10%': 0.0030832476875642945}
+D P4 hold-out, rule_rep 18337 {'nonrug_prevalence': 0.6822271909254513, 'nonrug_pr_auc': 0.7875740906320503, 'nonrug_lo': 0.7613733614029786, 'nonrug_hi': 0.8111241839402544, 'false_safe@1%': 0.0595741085009297, 'false_safe@5%': 0.07652887235007333, 'false_safe@10%': 0.08188941395048266}
+D P4 hold-out, prior 18337 {'nonrug_prevalence': 0.6822271909254513, 'nonrug_pr_auc': 0.6822271909254513, 'nonrug_lo': 0.6571629255540414, 'nonrug_hi': 0.706456254623682, 'false_safe@1%': 0.31777280907454875, 'false_safe@5%': 0.31777280907454875, 'false_safe@10%': 0.31777280907454875}
+E P1 random mint, classic 76854 {'prevalence': 0.2931922866734327, 'pr_auc': 0.7284459950098682, 'pr_lo': 0.7141916080223168, 'pr_hi': 0.7441365248208337, 'roc_auc': 0.888841636612074, 'roc_lo': 0.8812877660739815, 'roc_hi': 0.8969067596087268}
+E P4 hold-out, classic 15384 {'prevalence': 0.27229589183567343, 'pr_auc': 0.6781130631837494, 'pr_lo': 0.6606515534192526, 'pr_hi': 0.6978509863059755, 'roc_auc': 0.8871166545529451, 'roc_lo': 0.8739918454328921, 'roc_hi': 0.9001909386778406}
+E P4 classic, lgbm minus rule_insider 15384 {'ap_diff': 0.11373031656319743, 'ci_lo': 0.09831098949659774, 'ci_hi': 0.1299710831726935, 'boot_p': 0.0}
+E P4 classic, lgbm minus rule_dev 15384 {'ap_diff': 0.09360033109763721, 'ci_lo': 0.07845289466180164, 'ci_hi': 0.1103565607860304, 'boot_p': 0.0}
+E P4 classic, lgbm minus rule_rep 15384 {'ap_diff': 0.28468038659249695, 'ci_lo': 0.2606064161243026, 'ci_hi': 0.31153724494703144, 'boot_p': 0.0}
+E mayhem share, P1 test 94667 {'mayhem_share': 0.18816483040552673}
+E mayhem share, P3 hold-out 31142 {'mayhem_share': 0.22317127994348468}
+E mayhem share, P4 hold-out 18337 {'mayhem_share': 0.1610405191688935}
+F P1 test, creator seen in P1 training 67390 {'prevalence': 0.3726220507493693, 'pr_auc': 0.791802159791522, 'pr_lo': 0.7730413548393046, 'pr_hi': 0.8104926254925989, 'roc_auc': 0.8849409706548281, 'roc_lo': 0.8739447630126012, 'roc_hi': 0.8963187229200307}
+F P1 test, creator unseen in P1 training 27277 {'prevalence': 0.32144297393408366, 'pr_auc': 0.7068995894568301, 'pr_lo': 0.6967488728785205, 'pr_hi': 0.7166786379797565, 'roc_auc': 0.8636444909371374, 'roc_lo': 0.8595590009143527, 'roc_hi': 0.8679425123073716}
+F P3 hold-out, creator seen in training 12805 {'prevalence': 0.4582584927762593, 'pr_auc': 0.7986443955568563, 'pr_lo': 0.7582875478525608, 'pr_hi': 0.8313877652188338, 'roc_auc': 0.8526040897437145, 'roc_lo': 0.8235713585779014, 'roc_hi': 0.875195673527502}
+F P3 hold-out, creator unseen in training (= P4) 18337 {'prevalence': 0.31777280907454875, 'pr_auc': 0.6949791898712732, 'pr_lo': 0.6686808104754737, 'pr_hi': 0.7226756723875761, 'roc_auc': 0.8681459843280344, 'roc_lo': 0.8508805849516042, 'roc_hi': 0.8836603000059715}
+G mayhem hold-out, trained on classic 6950 {'prevalence': 0.6290647482014389, 'pr_auc': 0.7212792402485747, 'pr_lo': 0.6908458673480775, 'pr_hi': 0.7524256874992293, 'roc_auc': 0.6099287322456112, 'roc_lo': 0.5531033641043336, 'roc_hi': 0.6636002731139539}
+G mayhem hold-out ECE, trained on classic 6950 {'ece': 0.1253543556488863}
+G mayhem hold-out, trained on mayhem 6950 {'prevalence': 0.6290647482014389, 'pr_auc': 0.7985540387554888, 'pr_lo': 0.7526586841536345, 'pr_hi': 0.8361929998313767, 'roc_auc': 0.7130770642149741, 'roc_lo': 0.6784203651805983, 'roc_hi': 0.74386885792741}
+G mayhem hold-out ECE, trained on mayhem 6950 {'ece': 0.04668529972768985}
+G mayhem hold-out, pooled (all training launches) 6950 {'prevalence': 0.6290647482014389, 'pr_auc': 0.8185702010644853, 'pr_lo': 0.7745379533032142, 'pr_hi': 0.8520868695257623, 'roc_auc': 0.7348810879161204, 'roc_lo': 0.7009387246315459, 'roc_hi': 0.7644288608621644}
+G mayhem hold-out ECE, pooled (all training launches) 6950 {'ece': 0.02495148171496008}
+H daily PR-AUC slope per day, all launches 12 {'slope': np.float64(-0.0004428377366258883), 'slope_lo': np.float64(-0.002587171216787542), 'slope_hi': np.float64(0.0017014957435357652), 'pr_min': 0.7303197929401385, 'pr_max': 0.7656517585400403}
+H daily PR-AUC slope per day, creators unseen in training 12 {'slope': np.float64(-0.001206835500712839), 'slope_lo': np.float64(-0.00399433456631303), 'slope_hi': np.float64(0.0015806635648873513), 'pr_min': 0.6673730199191661, 'pr_max': 0.7155465629534423}
+I y_rug_drain, reserves rule (f10_rs) 31142 {'prevalence': 0.1600089910731488, 'pr_auc': 0.7830597862122669, 'pr_lo': 0.7628750113702625, 'pr_hi': 0.8023052458132175, 'roc_auc': 0.942097653985399, 'roc_lo': 0.9345286557173784, 'roc_hi': 0.9487181902901406}
+I y_rug_drain, lgbm minus reserves rule 31142 {'ap_diff': 0.06040670870911946, 'ci_lo': 0.052218502472910155, 'ci_hi': 0.06836894629937158, 'boot_p': 0.0}
+I y_collapse90, reserves rule (f10_rs) 31142 {'prevalence': 0.31770599190803417, 'pr_auc': 0.8466767706761662, 'pr_lo': 0.8298791658248249, 'pr_hi': 0.8635632231016342, 'roc_auc': 0.9156224513350552, 'roc_lo': 0.9041226718149451, 'roc_hi': 0.9257027145036514}
+I y_collapse90, lgbm minus reserves rule 31142 {'ap_diff': 0.04269231367389714, 'ci_lo': 0.036510270648433506, 'ci_hi': 0.04830512866336766, 'boot_p': 0.0}
+J launches where causal and oracle rug shares differ 115518 {'share_all': 0.4001427126487745, 'exact_causal': 0.5329732162952959, 'exact_oracle': 0.022334181685971018, 'mae_causal': 0.012995805855240208, 'mae_oracle': 0.09613264855600749, 'closer_to_causal': 0.6930867916688308, 'closer_to_oracle': 0.30687858169289634}
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  ret = a @ b
+  ret = a @ b
+  ret = a @ b
+K scorecard (logistic, 3 features), hold-out 31142 {'prevalence': 0.37553785884015156, 'pr_auc': 0.6504537789921494, 'pr_lo': 0.6294197411431555, 'pr_hi': 0.671032996344088, 'roc_auc': 0.81137504588446, 'roc_lo': 0.7937040940309774, 'roc_hi': 0.8264241763763105}
+K lgbm minus scorecard, hold-out 31142 {'ap_diff': 0.10406910601578945, 'ci_lo': 0.08718806130407557, 'ci_hi': 0.11887368030649298, 'boot_p': 0.0}
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  raw_prediction = X @ weights + intercept
+  ret = a @ b
+  ret = a @ b
+  ret = a @ b
+K scorecard (logistic, 3 features), P4 hold-out 18337 {'prevalence': 0.31777280907454875, 'pr_auc': 0.6014445892179165, 'pr_lo': 0.577813507450791, 'pr_hi': 0.6245940645164314, 'roc_auc': 0.8091940657187653, 'roc_lo': 0.7889403075865211, 'roc_hi': 0.8270752445571887}
+K lgbm minus scorecard, P4 hold-out 18337 {'ap_diff': 0.09353460065335661, 'ci_lo': 0.07454408791426646, 'ci_hi': 0.11284282945857949, 'boot_p': 0.0}
+44 rows -> ~/Projeler/pumpfun-rugpull-makale/results/R6_review_analyses.csv
+| Analysis | n (test) | Prevalence | PR-AUC [95% CI] | ROC-AUC [95% CI] |
+|---|---|---|---|---|
+| Lead time: rugs ≥ 120 s after the snapshot vs all non-rugs | 24,815 | 0.216 | 0.546 [0.509, 0.580] | 0.850 [0.834, 0.865] |
+| Lead time: rugs ≥ 180 s after the snapshot vs all non-rugs | 22,115 | 0.121 | 0.357 [0.319, 0.399] | 0.845 [0.826, 0.863] |
+| Peak reserves ≥ 1 SOL | 10,686 | 0.577 | 0.762 [0.735, 0.785] | 0.725 [0.708, 0.741] |
+| Peak reserves ≥ 5 SOL | 5,404 | 0.613 | 0.739 [0.717, 0.760] | 0.662 [0.645, 0.680] |
+| P1 test, creator seen in P1 training | 67,390 | 0.373 | 0.792 [0.773, 0.810] | 0.885 [0.874, 0.896] |
+| P1 test, creator unseen in P1 training | 27,277 | 0.321 | 0.707 [0.697, 0.717] | 0.864 [0.860, 0.868] |
+| P3 hold-out, creator seen in training | 12,805 | 0.458 | 0.799 [0.758, 0.831] | 0.853 [0.824, 0.875] |
+| P3 hold-out, creator unseen (= P4) | 18,337 | 0.318 | 0.695 [0.669, 0.723] | 0.868 [0.851, 0.884] |
+| Classic launches only, P1 | 76,854 | 0.293 | 0.728 [0.714, 0.744] | 0.889 [0.881, 0.897] |
+| Classic launches only, P4 hold-out | 15,384 | 0.272 | 0.678 [0.661, 0.698] | 0.887 [0.874, 0.900] |
+| Mayhem hold-out, trained on classic | 6,950 | 0.629 | 0.721 [0.691, 0.752] | 0.610 [0.553, 0.664] |
+| Mayhem hold-out, trained on mayhem | 6,950 | 0.629 | 0.799 [0.753, 0.836] | 0.713 [0.678, 0.744] |
+| Mayhem hold-out, pooled training | 6,950 | 0.629 | 0.819 [0.775, 0.852] | 0.735 [0.701, 0.764] |
+| DRAIN label, one-feature reserves rule | 31,142 | 0.160 | 0.783 [0.763, 0.802] | 0.942 [0.935, 0.949] |
+| collapse90 label, one-feature reserves rule | 31,142 | 0.318 | 0.847 [0.830, 0.864] | 0.916 [0.904, 0.926] |
+| Logistic scorecard (reputation, creator and insider share), hold-out | 31,142 | 0.376 | 0.650 [0.629, 0.671] | 0.811 [0.794, 0.826] |
+| Logistic scorecard, P4 hold-out | 18,337 | 0.318 | 0.601 [0.578, 0.625] | 0.809 [0.789, 0.827] |
+
+| Threshold set on the validation days | Share flagged (test) | Precision | Recall | MCC | Rugs among unflagged | Graduated tokens flagged |
+|---|---|---|---|---|---|---|
+| Training-prevalence share | 0.346 | 0.711 | 0.654 | 0.503 | 0.199 | 177 of 397 (44.6%) |
+| Budget 10% | 0.084 | 0.835 | 0.187 | 0.287 | 0.333 | 19 of 397 (4.8%) |
+| Budget 5% | 0.037 | 0.882 | 0.088 | 0.206 | 0.356 | 4 of 397 (1.0%) |
+| Budget 1% | 0.008 | 0.939 | 0.020 | 0.103 | 0.371 | 0 of 397 (0.0%) |

@@ -16,9 +16,10 @@ def tick(x, lab, below=""):
     d.line((x, y - 25, x, y + 25), fill="black", width=4); d.text((x - 60, y - 75), lab, font=f, fill="black")
     if below: d.text((x - 60, y + 35), below, font=fs, fill="dimgray")
 tick(x0, "t0", "create"); tick(380, "≤10 s", "f10 snapshot = decision time")
-tick(1500, "300 s", "label horizon"); tick(2120, "t0 + 1 h", "embargo")
+tick(700, "+60 s", ""); tick(1500, "300 s", "label horizon"); tick(2120, "t0 + 1 h", "embargo")
 d.rectangle((x0, y + 110, 380, y + 160), fill="#4C72B0"); d.text((x0 + 10, y + 115), "features", font=fs, fill="white")
-d.rectangle((380, y + 110, 1500, y + 160), fill="#DD8452"); d.text((400, y + 115), "rug event counted in y (strictly after snapshot)", font=fs, fill="white")
+d.rectangle((380, y + 110, 700, y + 160), fill="#BBBBBB"); d.text((392, y + 115), "< 60 s: excluded", font=fs, fill="black")
+d.rectangle((700, y + 110, 1500, y + 160), fill="#DD8452"); d.text((715, y + 115), "actionable rug counted in y (snapshot + 60 s to 300 s)", font=fs, fill="white")
 d.text((60, 470), "Creator history: an earlier launch counts only if its outcome time < t0 (causal reputation)", font=f, fill="black")
 d.text((60, 560), "(b) Evaluation protocols (rows = launches, colour = split)", font=fb, fill="black")
 rows = [("P1 random mint", "train/test interleaved; same creators on both sides"),

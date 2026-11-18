@@ -1,0 +1,18 @@
+PASS roc_auc == brute force (0.7801)
+PASS average_precision == brute force (0.8253)
+PASS mcc extremes
+PASS ece of constant 0.5 on balanced = 0
+PASS delong: identical scores give zero difference
+PASS delong SE ~ bootstrap SE (0.0191 vs 0.0196)
+PASS BH q-values [0.02 0.04 0.04 0.02]
+PASS mcnemar exact p=0.0020
+PASS causal_reputation (strict) == brute force on 600 launches (mismatches=0)
+PASS causal_reputation (strict=False, first run) == brute force (mismatches=0)
+PASS oracle reputation == brute force (mismatches=0)
+PASS precision_at_budget is tie-aware (constant score -> prevalence)
+PASS resolved history never exceeds launch history
+PASS creator-grouped split is creator-disjoint
+PASS forward folds strictly ordered with 1-day purge (5 folds)
+PASS s02_experiments.py --smoke runs end-to-end
+PASS audit flags a look-ahead reputation field (synthetic oracle) as closer to oracle than to causal
+17/17 checks passed (synthetic data; not research results)
